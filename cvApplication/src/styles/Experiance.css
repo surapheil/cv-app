@@ -1,0 +1,76 @@
+.experiance{
+    background-color: #f3f8ff;
+    padding: 1em 2em;
+}
+
+.experianceForm{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-height: 40vh;
+    gap: 1em;
+    flex-wrap: wrap;
+}
+
+.experianceDescription,
+.startDate,
+.endDate,
+.workLocation,
+.experianceButton{
+    display: flex;
+    justify-content: space-between;
+    width: 600px;
+    gap: 1.4em;
+}
+
+.experianceCheckBox{
+    display: flex;
+    gap: 1em;
+    align-items: center;
+}
+
+.experianceCheckBox input{
+    width: 1.5em;
+    height: 1.5em;
+    margin-left: 2px;
+    cursor: pointer;
+}
+
+.experianceCheckBox label{
+    display: flex;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #2b2d2f;
+    letter-spacing: 0.5px;
+    line-height: 2.6rem;
+}
+
+.experianceButton .button{
+    padding: 8px;
+    width: 50%;
+    font-size: 1.1em;
+    font-weight: 600;
+    border: 1px solid #0f172a;
+    background-color: #2b2d2f;
+    color: #fff;
+    display: flex;
+    cursor: pointer;
+    border-radius: 12px;
+    justify-content: center;
+    line-height: 2.6rem;
+}
+
+.experianceButton .backButton{
+    padding: 8px;
+    width: 50%;
+    font-size: 1.1em;
+    font-weight: 600;
+    border: 1px solid #d3d9de;
+    background-color: transparent;
+    color: #2b2d2f;
+    display: flex;
+    cursor: pointer;
+    border-radius: 12px;
+    justify-content: center;
+    line-height: 2.6rem;
+}

@@ -6,12 +6,14 @@ import "../styles/contact.css";
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [email, setEmail] = useState("");
-    const [phone, setPhone] = useState('');
+    const [phone, setPhone] = useState("");
 
     return(
         <div className="contact">
-            <h1> Contact</h1>
-            <p>please input your name, email and phone number</p>
+            <div className="contactHeaders">
+                <h1 className="contactTitle"> Contact</h1>
+                <p className="contactSubtitle">Please input your name, email and phone number.</p>
+            </div>
             
            <form className="contactForm">
                 <div className="fullName">
@@ -48,7 +50,7 @@ function Input({name,type,value,onChange}){
 
 function Button({type}){
     return (
-        <button className="button" type={type}>Submit</button>
+        <button className="button" type={type}>Continue</button>
     )
 }
 
