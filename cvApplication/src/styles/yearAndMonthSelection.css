@@ -1,0 +1,40 @@
+.yearContainer,
+.monthSelection{
+    position: relative;
+    width: 600px;
+}
+
+.selection{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #d3d9de;
+    border-radius: 10px;
+    outline: none;
+    font-size: 1.2em;
+    transition: 0.5s;
+    background-color: #fff;
+}
+
+span{
+    position: absolute;
+    left: 0;
+    padding: 10px;
+    pointer-events: none;
+    color: #979daa;
+    font-size: 1em;
+    font-weight: 610;
+    transition: 0.5s;
+}
+
+ select:focus + span,
+ span.transformed
+ {
+    color: #1d4ed8;
+    transform: translateX(10px) translateY(-7px);
+    font-size: 0.75em;
+    padding: 0px 8px;
+    background-color: #fff;
+    letter-spacing: 0.2em;
+}
+
+

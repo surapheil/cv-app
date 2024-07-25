@@ -1,0 +1,24 @@
+.education{
+    background-color: #f3f8ff;
+    padding: 1em 2em;
+}
+
+.educationForm{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-height: 50vh;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.educationDescription,
+.educationProgram,
+.graduationTiming,
+.gradeReport{
+    display: flex;
+    justify-content: space-between;
+    gap: 1.4em;
+    width: 600px;
+    margin: 0.5em 0em;
+}
