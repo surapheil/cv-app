@@ -9,7 +9,7 @@ function YearSelection(){
     const handleBlur = () => {
         setIsFocused(false);
         const select = document.getElementById('monthSelect');
-        if(select.value !== ''){
+        if(select.value !== ' '){
             setIsValid(true);
         }
         else{
