@@ -133,7 +133,23 @@
     margin: 0.5em 0em;
 }
 
+.certificationName{
+    display: flex;
+    flex-direction: column;
+}
+
 .email,
 .phone{
     width: 600px;
+}
+
+.addIcon{
+    margin: auto 0.7em;
+    height: 0.9em;
+    width: 0.9em;
+    
+}
+
+.addText{
+    text-decoration: none;
 }

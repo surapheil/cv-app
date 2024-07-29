@@ -1,0 +1,95 @@
+.inputBox{
+    position: relative;
+    width: 600px;
+}
+
+.inputBox input{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #d3d9de;
+    border-radius: 10px;
+    outline: none;
+    font-size: 1.2em;
+    transition: 0.5s;
+}
+
+.inputBox span{
+    position: absolute;
+    left: 0;
+    padding: 10px;
+    pointer-events: none;
+    color: #979daa;
+    font-size: 1em;
+    font-weight: 610;
+    transition: 0.5s;
+
+}
+
+.inputBox input:valid ~ .nameSpan,
+.inputBox input:focus ~ .nameSpan{
+    color: #1d4ed8;
+    transform: translateX(10px) translateY(-7px);
+    font-size: 0.75em;
+    padding: 0px 8px;
+    background-color: #fff;
+    letter-spacing: 0.2em;
+}
+
+
+.inputBox input:valid,
+.inputBox input:focus{
+    border: 1.5px solid #1d4ed8;
+}
+
+
+.inputBox input:invalid:focus{
+    border: 1.3px solid red;
+}
+
+.inputBox input:focus:invalid ~ .nameSpan{
+    color: #1d4ed8;
+    transform: translateX(10px) translateY(-7px);
+    font-size: 0.75em;
+    padding: 0px 8px;
+    background-color: #fff;
+    letter-spacing: 0.2em;
+}
+
+.dltIcn{  
+    margin: auto 0.7em;
+    height: 0.9em;
+    width: 0.9em;
+}
+
+
+.deleteIcon{
+    position: absolute;
+    right: 0;
+    padding: 10px;
+    cursor: pointer;
+    color: #979daa;
+    font-size: 1em;
+    font-weight: 610;
+    transition: 0.5s;
+}
+
+.skipBtn{
+    display: flex;
+    margin: 20px auto 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin: 10px 0 0;
+    line-height: 2.6rem;
+}
+
+.skipAnchor{
+    display: flex;
+    margin: auto;
+    color: #2b2d2f;
+}
+
+
+.certForm{
+   min-height: 30vh;
+}
