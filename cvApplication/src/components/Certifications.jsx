@@ -32,7 +32,7 @@ function Certifications(){
             <form className="contactForm certForm">
                 <div className="certificationName fullName">
                     {certification.map((cert,index)=>(
-                        <Input key={index} value = {cert} type="text" name={`Certification #${index + 1} name`}
+                        <Input key={index} value = {cert} type="text" name={`Certification #${index + 1}`}
                             onChange={(e)=>handleChangeInput(index,e.target.value)}
                             onClick={()=>handleDelete(index)} 
                         />

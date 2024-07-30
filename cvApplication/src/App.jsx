@@ -3,6 +3,7 @@ import Experiance from './components/Experiance'
 import './App.css'
 import Education from './components/Education';
 import Certifications from './components/Certifications';
+import Skills from './components/Skills';
 
 function App() {
 
@@ -12,6 +13,7 @@ function App() {
         <Experiance/>
         <Education/>
         <Certifications/>
+        <Skills/>
     </div>
   )
 }
