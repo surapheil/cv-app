@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react';
+import Button from '../assets/Button';
 import Textarea from '../assets/Textarea';
 import '../styles/contact.css';
 
@@ -59,7 +60,7 @@ const Summary = () => {
           <h1 className="summaryTitle contactTitle"> Professional Summary</h1>
           <p className=" summarySubtitle contactSubtitle">This section tells,&quot;Here&apos;s who I am, and here&apos;s what I can do for your company&quot;</p>
       </div>
-      <div>
+      <form className='contactForm'>
         <Textarea
           ref={textAreaRef}
           value={content}
@@ -70,7 +71,14 @@ const Summary = () => {
           onUnderline={handleUnderline}
           placeHolder="Add, edit, and write here."
         />
-      </div>
+        <div className='educationButton experianceButton'>
+                    <Button type="submit" value="Back" className="backButton"/>
+                    <Button type="submit" value="Continue" className="button"/>
+        </div>
+      </form>
+      <div className="skipBtn">
+                <a href="#" className="skipAnchor">Skip adding skills</a>
+       </div>
       
     </div>
     
