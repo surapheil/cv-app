@@ -29,10 +29,8 @@ import "../styles/contact.css";
                 </div>
                 <div className="contactBtn">
                     <Button type = "submit"/>
-                </div>
-                   
+                </div> 
            </form>
-            
         </div>
     )
 }

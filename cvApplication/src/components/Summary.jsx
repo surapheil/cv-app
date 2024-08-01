@@ -72,12 +72,12 @@ const Summary = () => {
           placeHolder="Add, edit, and write here."
         />
         <div className='educationButton experianceButton'>
-                    <Button type="submit" value="Back" className="backButton"/>
-                    <Button type="submit" value="Continue" className="button"/>
+              <Button type="submit" value="Back" className="backButton"/>
+              <Button type="submit" value="Continue" className="button"/>
         </div>
       </form>
       <div className="skipBtn">
-                <a href="#" className="skipAnchor">Skip adding skills</a>
+          <a href="#" className="skipAnchor">Skip adding skills</a>
        </div>
       
     </div>
