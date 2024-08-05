@@ -30,8 +30,7 @@ function Finalize(){
                 <div className='experianceButton'>
                     <Button name ="Back" value = "Back" className="backButton" type="submit"/>
                     <Button name="Continue" value="Continue" className="button" type="Submit"/>
-                </div>
-                
+                </div>                
             </form>           
         </div>
     )

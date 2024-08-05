@@ -16,17 +16,11 @@ function Reference(){
                     <Button className="backButton" type="submit" value="Upon Request"/>
                     <Button className="backButton" type="submit" value="No"/>
                 </div>
-
                 <Addreference/>
-            </form>
-            
-        </div>
-        
-    )
-
+            </form>            
+        </div>   
+)
 }
-
-
 
 function Addreference(){
     const [firstName, setFirstName] = useState("");

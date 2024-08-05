@@ -3,6 +3,8 @@ import Button from '../assets/Button';
 import { useState } from 'react';
 import '../styles/Experiance.css';
 import '../styles/contact.css';
+import MonthInput from '../assets/monthSelection';
+import YearSelection from '../assets/yearSelection';
 
 
 function Experiance(){
@@ -31,13 +33,13 @@ function Experiance(){
                     <Input name="Province or State" value={ Province } onChange={(e)=>setProvince(e.target.value)}/>
                     <Input name="City" value={ City } onChange={(e)=>setCity(e.target.value)}/>
                 </div>
-                <div className='startDate'>
-                    <Input name="Start Month" value={startMonth} onChange={(e)=>setStartMonth(e.target.value)}/>
-                    <Input name="Start Year" value={startYear} onChange={(e)=>setStartYear(e.target.value)} />
+                <div className='graduationTiming'>
+                    <MonthInput name="Start month" value={startMonth} onChange={(e)=>setStartMonth(e.target.value)} />
+                    <YearSelection name="Start year" value={startYear} onChange={(e)=>setStartYear(e.target.value)} />
                 </div>
-                <div className='endDate'>
-                    <Input name="End Month" value={endMonth} onChange={(e)=>setEndMonth(e.target.value)} />
-                    <Input name="End Year" value={endYear} onChange={(e)=>setEndYear(e.target.value)} />
+                <div className='graduationTiming'>
+                    <MonthInput name="End months" value={endMonth} onChange={(e)=>setEndMonth(e.target.value)} />
+                    <YearSelection name="End year" value={endYear} onChange={(e)=>setEndYear(e.target.value)} />
                 </div>
                 <div className='experianceCheckBox'>
                     <input  type="checkbox"/>
