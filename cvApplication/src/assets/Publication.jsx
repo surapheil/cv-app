@@ -1,48 +1,47 @@
 import { useState } from "react";
-import Input from "../assets/InputCertificate";
-import Button from "../assets/Button";  
+import Input from "./InputCertificate";
+import Button from "./Button";  
 import '../styles/contact.css';
 import addIcon from '../assets/images/plus-icon_11985505.png';
 
-function Skills(){
-    let [skills,setSkills] = useState(['']);
+function Publications(){
+    let [publications,setPublications] = useState(['']);
   
     const handleDelete=(indexToDelete)=>{
-        setSkills(skills.filter((_,index)=>index !== indexToDelete));
+        setPublications(publications.filter((_,index)=>index !== indexToDelete));
 
     }
 
     const handleAddCertification = (e) => {
         e.preventDefault();
-        setSkills([...skills,''])
+        setPublications([...publications,''])
     }
 
     const handleChangeInput = (index,value)=>{
-        let updatedInputField = [...skills];
+        let updatedInputField = [...publications];
         updatedInputField[index] = value;
-        setSkills(updatedInputField);
+        setPublications(updatedInputField);
     }
 
     return(
         <div className="certefication contact">
             <div className="certrificateHeader contactHeader">
-                <h1 className="contactTitle">Skills</h1>
-                <p className="contactSubtitle">Listing 6-10 skills is best.</p>
+                <h1 className="contactTitle">Publications</h1>
+                <p className="contactSubtitle"></p>
             </div>
             <form className="contactForm certForm">
                 <div className="certificationName fullName">
-                    {skills.map((skill,index)=>(
-                        <Input key={index} value = {skill} type="text" name={`Skill #${index + 1}`}
+                    {publications.map((skill,index)=>(
+                        <Input key={index} value = {skill} type="text" name={`Publication #${index + 1}`}
                             onChange={(e)=>handleChangeInput(index,e.target.value)}
                             onClick={()=>handleDelete(index)} 
                         />
-                    ))}
-                    
+                    ))}    
                 </div>
                 <div className="addField">
                     <a href="#" className="contactSubtitle addText" onClick={handleAddCertification}>
                         <img src={addIcon} alt="" className="addIcon" />
-                        Add another skill
+                        Add another publication
                     </a>
                 </div>
 
@@ -52,11 +51,9 @@ function Skills(){
                 </div>
             </form>
             <div className="skipBtn">
-                <a href="#" className="skipAnchor">Skip adding skills</a>
+                <a href="#" className="skipAnchor">Skip adding publications</a>
             </div>
         </div>
     )
 }
-
-
-export default Skills;
+export default Publications;

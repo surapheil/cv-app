@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useState } from "react";
 
-function YearSelection(){
+function YearSelection({name}){
     let [isValid,setIsValid] = useState(false);
     let [isFocused,setIsFocused] = useState(false);
 
@@ -9,7 +9,7 @@ function YearSelection(){
     const handleBlur = () => {
         setIsFocused(false);
         const select = document.getElementById('monthSelect');
-        if(select.value !== ' '){
+        if(select.value !== ''){
             setIsValid(true);
         }
         else{
@@ -32,7 +32,7 @@ function YearSelection(){
                 onBlur={handleBlur} 
                 required
              >
-                <option value="year"></option>
+                <option value=""></option>
                 <option value="2024">2024</option>
                 <option value="2023">2023</option>
                 <option value="2022">2022</option>
@@ -100,7 +100,7 @@ function YearSelection(){
                 <option value="1960">1960</option>
 
         </select>
-        <span className={isValid || isFocused ? 'transformed':''}>Graduation Year</span>
+        <span className={isValid || isFocused ? 'transformed':''}>{name}</span>
     </div>
 )
 }

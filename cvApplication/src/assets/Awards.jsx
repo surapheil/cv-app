@@ -1,48 +1,47 @@
 import { useState } from "react";
-import Input from "../assets/InputCertificate";
-import Button from "../assets/Button";  
+import Input from "./InputCertificate";
+import Button from "./Button";  
 import '../styles/contact.css';
 import addIcon from '../assets/images/plus-icon_11985505.png';
 
-function Skills(){
-    let [skills,setSkills] = useState(['']);
+function Awards(){
+    let [awards,setAwards] = useState(['']);
   
     const handleDelete=(indexToDelete)=>{
-        setSkills(skills.filter((_,index)=>index !== indexToDelete));
+        setAwards(awards.filter((_,index)=>index !== indexToDelete));
 
     }
 
     const handleAddCertification = (e) => {
         e.preventDefault();
-        setSkills([...skills,''])
+        setAwards([...awards,''])
     }
 
     const handleChangeInput = (index,value)=>{
-        let updatedInputField = [...skills];
+        let updatedInputField = [...awards];
         updatedInputField[index] = value;
-        setSkills(updatedInputField);
+        setAwards(updatedInputField);
     }
 
     return(
         <div className="certefication contact">
             <div className="certrificateHeader contactHeader">
-                <h1 className="contactTitle">Skills</h1>
-                <p className="contactSubtitle">Listing 6-10 skills is best.</p>
+                <h1 className="contactTitle">Awards</h1>
+                <p className="contactSubtitle"></p>
             </div>
             <form className="contactForm certForm">
                 <div className="certificationName fullName">
-                    {skills.map((skill,index)=>(
-                        <Input key={index} value = {skill} type="text" name={`Skill #${index + 1}`}
+                    {awards.map((skill,index)=>(
+                        <Input key={index} value = {skill} type="text" name={`Award #${index + 1}`}
                             onChange={(e)=>handleChangeInput(index,e.target.value)}
                             onClick={()=>handleDelete(index)} 
                         />
-                    ))}
-                    
+                    ))}    
                 </div>
                 <div className="addField">
                     <a href="#" className="contactSubtitle addText" onClick={handleAddCertification}>
                         <img src={addIcon} alt="" className="addIcon" />
-                        Add another skill
+                        Add another award
                     </a>
                 </div>
 
@@ -52,11 +51,9 @@ function Skills(){
                 </div>
             </form>
             <div className="skipBtn">
-                <a href="#" className="skipAnchor">Skip adding skills</a>
+                <a href="#" className="skipAnchor">Skip adding awards</a>
             </div>
         </div>
     )
 }
-
-
-export default Skills;
+export default Awards;

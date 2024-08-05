@@ -8,5 +8,4 @@ function Input({name,type,value,onChange}){
     )
 }
 
-
 export default Input;

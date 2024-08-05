@@ -37,4 +37,23 @@ span{
     letter-spacing: 0.2em;
 }
 
+select:valid ~ span {
+    color: #1d4ed8;
+    transform: translateX(10px) translateY(-7px);
+    font-size: 0.75em;
+    padding: 0px 8px;
+    background-color: #fff;
+    letter-spacing: 0.2em;
+}
+
+.languageInputs{
+    display: flex;
+    flex-direction: column;
+    gap: 1.3em;
+
+}
+
+.langProf > div{
+    margin: 1em 0;
+}
 

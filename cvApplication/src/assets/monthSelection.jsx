@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-function MonthInput(){
+function MonthInput({name}){
         let [isValid,setIsValid] = useState(false);
         let [isFocused,setIsFocused] = useState(false);
 
@@ -31,7 +31,7 @@ function MonthInput(){
                 onBlur={handleBlur} 
                 required
             >
-                <option value="graduationMonth"></option>
+                <option value=""></option>
                 <option value="January">January</option>
                 <option value="February">February</option>
                 <option value="March">March</option>
@@ -45,7 +45,7 @@ function MonthInput(){
                 <option value="November">November</option>
                 <option value="December">December</option>
             </select>
-            <span className={`monthsPlaceholder ${ isFocused || isValid ? 'transformed': '' }`}>Graduation month</span>
+            <span className={`monthsPlaceholder ${ isFocused || isValid ? 'transformed': '' }`}>{name}</span>
         </div>
     )
 }

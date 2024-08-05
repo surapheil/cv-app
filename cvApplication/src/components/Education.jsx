@@ -31,8 +31,8 @@ function Education(){
                     <Input type="text" value={fieldOfStudy} name="Field of study" onChange={(e)=>setFieldOfStudy(e.target.value)}/>
                 </div>
                 <div className='graduationTiming'>
-                    <MonthInput name="months" value={month} onChange={(e)=>setMonth(e.target.value)} />
-                    <YearSelection name="year" value={year} onChange={(e)=>setYear(e.target.value)} />
+                    <MonthInput name="Graduation month" value={month} onChange={(e)=>setMonth(e.target.value)} />
+                    <YearSelection name="Graduation year" value={year} onChange={(e)=>setYear(e.target.value)} />
                 </div>
                 <div className="gradeReport">
                     <Input type="text" name="GPA score"/>

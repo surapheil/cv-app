@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import { useState, useRef } from 'react';
 import Button from '../assets/Button';
 import Textarea from '../assets/Textarea';
 import '../styles/contact.css';
@@ -77,7 +77,7 @@ const Summary = () => {
         </div>
       </form>
       <div className="skipBtn">
-          <a href="#" className="skipAnchor">Skip adding skills</a>
+          <a href="#" className="skipAnchor">Skip adding summary</a>
        </div>
       
     </div>
