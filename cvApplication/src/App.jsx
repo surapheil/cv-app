@@ -11,24 +11,31 @@ import Languages from './components/Languages';
 import Volunteer from './assets/Volunteer';
 import Awards from './assets/Awards';
 import Publications from './assets/Publication';
+import Navigation from './navigation/Navigation';
 
 function App() {
 
   return (
-    <div>
-        <Contact/> 
-        <Experiance/>
-        <Education/>
-        <Certifications/>
-        <Skills/>
-        <Summary/>
-        <Reference/>
-        <Finalize/>
-        <Languages/>
-        <Volunteer/>
-        <Awards/>
-        <Publications/>
+    <div className='container'>
+      <div className='leftNavigation'>
+          <Navigation />
+      </div>
+      <div className='main'>
+          <Contact/> 
+          <Experiance/>
+          <Education/>
+          <Certifications/>
+          <Skills/>
+          <Summary/>
+          <Reference/>
+          <Finalize/>
+          <Languages/>
+          <Volunteer/>
+          <Awards/>
+          <Publications/>
+      </div>
     </div>
+    
   )
 }
 
