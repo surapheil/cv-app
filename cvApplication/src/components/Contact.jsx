@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "../styles/contact.css";
+ import "../styles/contact.css";
 import Country from "../assets/Country";
 
 
@@ -10,6 +10,7 @@ function Contact(){
     const [phone, setPhone] = useState("");
     const [country,setCountry] = useState("");
     const [city,setCity] = useState("");
+    const [linkedin,setLinkedin] = useState("");
 
     return(
         <div className="contact">
@@ -35,6 +36,9 @@ function Contact(){
                 <div className="email">
                     <Input name = "Email" type = "email" value={ email } onChange = {(e)=> setEmail(e.target.value)} />
                 </div>
+                <div className="linkedin">
+                    <Input name = "LinkedIn (Optional)" type = "text" value={ linkedin } onChange = {(e)=> setLinkedin(e.target.value)} />
+                </div>
 
                 <div className="contactBtn">
                     <Button type = "submit"/>
@@ -54,6 +58,8 @@ function Input({name,type,value,onChange}){
         </div>    
     )
 }
+
+
 
 function Button({type}){
     return (

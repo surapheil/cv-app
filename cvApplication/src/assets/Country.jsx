@@ -1,6 +1,7 @@
 // import React from 'react';
 import Select from 'react-select';
 import countryList from 'react-select-country-list';
+import '../styles/contact.css'
 
 const Country = () => {
   const options = countryList().getData();
@@ -20,10 +21,14 @@ const Country = () => {
     //   zIndex: 9999, // Ensure the dropdown appears above other elements
     }),
   };
+  const customComponents = {
+    A11yText: () => null,
+  };
 
   const handleChange = (selectedOption) => {
     console.log(`Selected country: ${selectedOption.label}`);
   };
+
 
   return (
     <div className='inputBox'>
@@ -34,6 +39,7 @@ const Country = () => {
         onChange={handleChange}
         placeholder="Select a country"
         isSearchable={true}
+        components={customComponents}
       />
     </div>
   );
