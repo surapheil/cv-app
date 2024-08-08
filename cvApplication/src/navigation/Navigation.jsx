@@ -16,8 +16,7 @@ import referenceClicked from './icons/referenceClicked.png';
 import Finalize from './icons/Finalize.png';
 import '../styles/Navigation.css';
 
-function Navigation(){
-    const [isActive, setIsActive] = useState(null);
+function Navigation({isActive,setIsActive}){
      
      const handleClick = (icon,e)=>{
         e.preventDefault();
@@ -65,7 +64,7 @@ function Navigation(){
             <div className={`referenceNavigation navs ${isActive === 'reference' ? 'ref': ''}`} onClick={(e)=>setIsActive('reference',e)}>
                 <a href="#" className='refrenceIcn'>
                     <img src={isActive === 'reference' ? referenceClicked: Reference} className="icn" alt="" />
-                    Reference
+                    References
                 </a>
             </div>
             <div className={`finalizeNavigation navs ${isActive === 'finalize' ? 'fin': ''}`} onClick={(e)=>setIsActive('finalize',e)}>
