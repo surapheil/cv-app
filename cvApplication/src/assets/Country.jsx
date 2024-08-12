@@ -2,6 +2,7 @@
 import Select from 'react-select';
 import countryList from 'react-select-country-list';
 import '../styles/contact.css'
+import { SingleValue } from 'react-select/animated';
 
 const Country = () => {
   const options = countryList().getData();
@@ -20,6 +21,11 @@ const Country = () => {
       ...provided,
     //   zIndex: 9999, // Ensure the dropdown appears above other elements
     }),
+
+    SingleValue:(provided) => ({
+      ...provided,
+      backgroundColor:'red',
+    })
   };
   const customComponents = {
     A11yText: () => null,

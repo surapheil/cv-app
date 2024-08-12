@@ -8,7 +8,7 @@ import '../styles/contact.css';
 import '../assets/yearSelection';
 import YearSelection from '../assets/yearSelection';
 import { useState } from 'react';
-function Education(){
+function Education({onExperienceContinueClick,onEducationContinueClick}){
     const [schoolName,setSchoolName] = useState('');
     const [schoolLocation,setSchoolLocation] = useState('');
     const [educationLevel,setEducationLevel] = useState('');
@@ -38,8 +38,8 @@ function Education(){
                     <Input type="text" name="GPA score"/>
                 </div>
                 <div className='educationButton experianceButton'>
-                    <Button type="submit" value="Back" className="backButton"/>
-                    <Button type="submit" value="Continue" className="button"/>
+                    <Button type="button" value="Back" onClick={onExperienceContinueClick} className="backButton"/>
+                    <Button type="button" value="Continue" onClick={onEducationContinueClick} className="button"/>
                 </div>
             </form>
         </div>

@@ -3,7 +3,7 @@ import { useState } from "react";
 import Country from "../assets/Country";
 
 
-function Contact(){
+function Contact({onContinueClick}){
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [email, setEmail] = useState("");
@@ -12,6 +12,11 @@ function Contact(){
     const [city,setCity] = useState("");
     const [linkedin,setLinkedin] = useState("");
 
+    const handleContinueClick = (e) =>{
+        e.preventDefault();
+        onContinueClick();
+    }
+
     return(
         <div className="contact">
             <div className="contactHeaders">
@@ -19,7 +24,7 @@ function Contact(){
                 <p className="contactSubtitle">Please input your name, email and phone number.</p>
             </div>
             
-           <form className="contactForm">
+           <form className="contactForm" onSubmit={handleContinueClick}>
                 <div className="fullName">
                     <Input name = "First name" type = "text" value={ firstName } onChange = {(e)=> setFirstName(e.target.value)} />
                     <Input name = "Last name" type = "text" value={ lastName } onChange = {(e)=> setLastName(e.target.value)} />
@@ -41,7 +46,7 @@ function Contact(){
                 </div>
 
                 <div className="contactBtn">
-                    <Button type = "submit"/>
+                    <Button type = "submit" />
                 </div> 
            </form>
         </div>

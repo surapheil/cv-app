@@ -1,9 +1,11 @@
 import { useState, useRef } from 'react';
 import Button from '../assets/Button';
 import Textarea from '../assets/Textarea';
-import '../styles/contact.css';
+import '../styles/contact.css'; 
+import addIcon from '../assets/images/plus-icon_11985505.png';
 
-const Summary = ({onCertificateContinueClick,onSummaryContinueClick }) => {
+
+const ExperienceSummary = ({onContinueClick,onExperienceSummaryContinueClick}) => {
   const [content, setContent] = useState('');
   const textAreaRef = useRef(null);
 
@@ -57,8 +59,8 @@ const Summary = ({onCertificateContinueClick,onSummaryContinueClick }) => {
   return (
     <div className="summary contact">
       <div className="summaryHeader contactHeaders">
-          <h1 className="summaryTitle contactTitle"> Professional Summary</h1>
-          <p className=" summarySubtitle contactSubtitle">This section tells,&quot;Here&apos;s who I am, and here&apos;s what I can do for your company&quot;</p>
+          <h1 className="summaryTitle contactTitle"> Experience Summary</h1>
+          <p className=" summarySubtitle contactSubtitle">This section tells,&quot;Here&apos;s who I am, and here&apos;s what I have done for the company&quot;</p>
       </div>
       <form className='contactForm'>
         <Textarea
@@ -71,18 +73,23 @@ const Summary = ({onCertificateContinueClick,onSummaryContinueClick }) => {
           onUnderline={handleUnderline}
           placeHolder="Add, edit, and write here."
         />
-        <div className='educationButton experianceButton'>
-              <Button type="button" value="Back" onClick={onCertificateContinueClick} className="backButton"/>
-              <Button type="button" value="Continue" onClick={onSummaryContinueClick} className="button"/>
+        <div className="addField">
+            <a href="#" className="contactSubtitle addText"  onClick={onContinueClick}>
+                <img src={addIcon} alt="" className="addIcon" />
+                Add another Experiance
+            </a>
         </div>
+        <div className='educationButton experianceButton'>
+              <Button type="button" value="Back" className="backButton" onClick={onContinueClick}/>
+              <Button type="submit" value="Continue" onClick={onExperienceSummaryContinueClick} className="button"/>
+        </div>  
       </form>
       <div className="skipBtn">
-          <a href="#" className="skipAnchor">Skip adding summary</a>
-       </div>
-      
+          <a href="#" className="skipAnchor">Skip adding Experience</a>
+      </div>
     </div>
     
   );
 };
 
-export default Summary;
+export default ExperienceSummary;

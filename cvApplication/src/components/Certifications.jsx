@@ -4,7 +4,7 @@ import Button from "../assets/Button";
 import '../styles/contact.css';
 import addIcon from '../assets/images/plus-icon_11985505.png';
 
-function Certifications(){
+function Certifications({onExperienceSummaryContinueClick,onCertificateContinueClick}){
     let [certification,setCertifications] = useState(['']);
   
     const handleDelete=(indexToDelete)=>{
@@ -47,8 +47,8 @@ function Certifications(){
                 </div>
 
                 <div className='educationButton experianceButton'>
-                    <Button type="submit" value="Back" className="backButton"/>
-                    <Button type="submit" value="Continue" className="button"/>
+                    <Button type="button" value="Back" className="backButton" onClick={onExperienceSummaryContinueClick} />
+                    <Button type="button" value="Continue" className="button" onClick={onCertificateContinueClick}/>
                 </div>
             </form>
             <div className="skipBtn">
