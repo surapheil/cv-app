@@ -3,8 +3,27 @@ import '../styles/Education.css';
 import '../styles/Experiance.css';
 import Button from "../assets/Button";
 import '../styles/yearAndMonthSelection.css';
+import { useState } from 'react';
 
-function Finalize(){
+function Finalize({onSummaryContinueClick,onFinalizeContinueClick}){
+    const [selectedSection,setSelectedSection] = useState([]);
+
+    const handleCheckBox = (event)=>{
+        const {name,checked} = event.target;
+        if(checked){
+            setSelectedSection([...selectedSection,name]);
+        }
+        else{
+            setSelectedSection(selectedSection.filter(section => section !== name));
+        }
+    }
+
+    const handleContinueClick = () =>{
+        onFinalizeContinueClick(selectedSection);
+    }
+  
+
+    console.log(selectedSection);
     return(
         <div className="finalize contact">
             <div className='contactHeaders'>
@@ -12,24 +31,24 @@ function Finalize(){
             </div>
             <form className="contactForm">
                 <div className='experianceCheckBox'>
-                    <input  type="checkbox"/>
+                    <input name="Languages"  type="checkbox" onChange={handleCheckBox} />
                     <label >Languages</label>
                 </div>
                 <div className='experianceCheckBox'>
-                    <input  type="checkbox"/>
+                    <input name="Volunteer" type="checkbox" onChange={handleCheckBox}/>
                     <label >Volunteer Experience</label>
                 </div>
                 <div className='experianceCheckBox'>
-                    <input  type="checkbox"/>
+                    <input  name="Awards" type="checkbox" onChange={handleCheckBox} />
                     <label >Awards</label>
                 </div>
                 <div className='experianceCheckBox'>
-                    <input  type="checkbox"/>
+                    <input name="Publications" type="checkbox" onChange={handleCheckBox} />
                     <label >Publications</label>
                 </div>
                 <div className='experianceButton'>
-                    <Button name ="Back" value = "Back" className="backButton" type="submit"/>
-                    <Button name="Continue" value="Continue" className="button" type="Submit"/>
+                    <Button name ="Back" value = "Back" className="backButton" onClick={onSummaryContinueClick} type="button"/>
+                    <Button name="Continue" value="Continue" className="button" onClick={handleContinueClick} type="button"/>
                 </div>                
             </form>           
         </div>

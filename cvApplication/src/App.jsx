@@ -18,6 +18,7 @@ import AddReference from './components/AddRef';
 
 function App() {
   const [isActive,setIsActive] = useState('contact');
+  const [finalizeOrder,setFinalizeOrder] = useState([]);
 
   const onContinueClick=()=>{
     setIsActive('experience');
@@ -59,6 +60,11 @@ function App() {
     setIsActive('finalize');
   }
 
+  const onFinalizeContinueClick = (selectedSection) =>{
+    setFinalizeOrder(selectedSection);
+    setIsActive('finalizeContinue');
+  } 
+
 
   console.log(isActive);
 
@@ -76,12 +82,16 @@ function App() {
           {isActive === 'skill'&& <Skills onEducationContinueClick={onEducationContinueClick} onSkillsContinueClick={onSkillsContinueClick}/>}
           {isActive === 'summary' && <Summary onSummaryContinueClick = {onSummaryContinueClick} onCertificateContinueClick={onCertificateContinueClick}/>}
           {isActive === 'reference' && <Reference addReferenceClick ={ addReferenceClick } toFinilizeClick={toFinilizeClick} />}
-          {isActive === 'finalize' && <Finalize/>}
+          {isActive === 'finalize' && <Finalize onSummaryContinueClick={onSummaryContinueClick} onFinalizeContinueClick={onFinalizeContinueClick} />}
           {isActive === 'addReference' && <AddReference onSummaryContinueClick={onSummaryContinueClick} toFinilizeClick={toFinilizeClick} />}
-          {isActive === '' && <Languages/>}
-          {isActive === '' && <Volunteer/>}
-          {isActive === '' && <Awards/>}
-          {isActive === '' && <Publications/>}
+          {isActive === 'finalizeContinue' && (
+            <>
+                {finalizeOrder.includes('Languages') && <Languages/>}
+                {finalizeOrder.includes('Volunteer') && <Volunteer/>}
+                {finalizeOrder.includes('Awards') && <Awards/>}
+                {finalizeOrder.includes('Publications') && <Publications/>}
+
+            </> )}
       </div>
     </div>
     
