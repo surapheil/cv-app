@@ -46,7 +46,7 @@ function Experiance({onExperianceBackClick,onExperienceContinueClick}){
                     <label >Currently Working Here</label>
                 </div>
                 <div className='experianceButton'>
-                    <Button name ="Back" value = "Back" className="backButton" onClick={onExperianceBackClick} type="submit"/>
+                    <Button name ="Back" value = "Back" className="backButton" onClick={onExperianceBackClick} type="button"/>
                     <Button name="Continue" value="Continue" className="button" onClick={onExperienceContinueClick} type="button"/>
                 </div>
             </form>

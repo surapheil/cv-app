@@ -4,7 +4,7 @@ import Button from "./Button";
 import '../styles/contact.css';
 import addIcon from '../assets/images/plus-icon_11985505.png';
 
-function Publications(){
+function Publications({handlePrevSection,handleNextSection}){
     let [publications,setPublications] = useState(['']);
   
     const handleDelete=(indexToDelete)=>{
@@ -46,8 +46,8 @@ function Publications(){
                 </div>
 
                 <div className='educationButton experianceButton'>
-                    <Button type="submit" value="Back" className="backButton"/>
-                    <Button type="submit" value="Continue" className="button"/>
+                    <Button type="button" value="Back" onClick={handlePrevSection} className="backButton"/>
+                    <Button type="button" value="Continue" onClick={handleNextSection} className="button"/>
                 </div>
             </form>
             <div className="skipBtn">

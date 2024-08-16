@@ -7,7 +7,7 @@ import MonthInput from '../assets/monthSelection';
 import YearSelection from '../assets/yearSelection';
 
 
-function Experiance(){
+function Volunteer({handlePrevSection,handleNextSection}){
     const [JobTitle,setJobTitle] = useState('');
     const [Company,setCompany] = useState('');
     const [Country,setCountry] = useState('');
@@ -46,8 +46,8 @@ function Experiance(){
                     <label >Currently Working Here</label>
                 </div>
                 <div className='experianceButton'>
-                    <Button name ="Back" value = "Back" className="backButton" type="submit"/>
-                    <Button name="Continue" value="Continue" className="button" type="Submit"/>
+                    <Button name ="Back" value = "Back" onClick={handlePrevSection} className="backButton" type="button"/>
+                    <Button name="Continue" value="Continue" className="button" onClick={handleNextSection} type="button"/>
                 </div>
             </form>
             
@@ -56,4 +56,4 @@ function Experiance(){
 }
 
 
-export default Experiance;
+export default Volunteer;

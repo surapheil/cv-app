@@ -5,7 +5,7 @@ import '../styles/Education.css';
 import '../styles/Experiance.css';
 import Button from "../assets/Button";
 import addIcon from '../assets/images/plus-icon_11985505.png';
-function Languages(){
+function Languages({handlePrevSection,handleNextSection}){
     let [languages,setLanguages] = useState(
         [{
             name: '',
@@ -115,8 +115,8 @@ function Languages(){
                 </a>
             </div>
             <div className='educationButton experianceButton'>
-                    <Button type="submit" value="Back" className="backButton"/>
-                    <Button type="submit" value="Continue" className="button"/>
+                    <Button type="button" value="Back"  onClick={handlePrevSection} className="backButton"/>
+                    <Button type="button" value="Continue" onClick={handleNextSection} className="button"/>
             </div>
             </form>
             

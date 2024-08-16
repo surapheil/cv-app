@@ -1,8 +1,7 @@
 import Button from '../assets/Button';
 import '../styles/contact.css';
 import '../styles/Experiance.css'
-import { useState } from 'react';
-function Reference({addReferenceClick,toFinilizeClick}){
+function Reference({toFinalizeClick,addReferenceClick}){
     return(
         <div className="reference contact">
             <div className="contactHeaders">
@@ -12,11 +11,11 @@ function Reference({addReferenceClick,toFinilizeClick}){
             <form className="referenceForm contactForm">
                 <div className="refBtn experianceButton">
                     <Button className="backButton" type="button" onClick={addReferenceClick} value="Yes"/>
-                    <Button className="backButton" type="button" value="Upon Request" onClick={toFinilizeClick}/>
-                    <Button className="backButton" type="button" value="No" onClick={toFinilizeClick}/>
+                    <Button className="backButton" type="button" onClick={toFinalizeClick} value="Upon Request" />
+                    <Button className="backButton" type="button" onClick={toFinalizeClick} value="No"/>
                 </div>
             </form>            
-        </div>   
+a       </div>   
 )
 }
 
