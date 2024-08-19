@@ -1,16 +1,27 @@
 import { useState } from "react";
- import "../styles/contact.css";
+import "../styles/contact.css";
 import Country from "../assets/Country";
 
 
 function Contact({onContinueClick}){
-    const [firstName, setFirstName] = useState("");
-    const [lastName, setLastName] = useState("");
-    const [email, setEmail] = useState("");
-    const [phone, setPhone] = useState("");
-    const [country,setCountry] = useState("");
-    const [city,setCity] = useState("");
-    const [linkedin,setLinkedin] = useState("");
+    const [contact,setContact] = useState({
+        firstName:'',
+        lastName:'',
+        email:'',
+        phone:'',
+        country: '',
+        city: '',
+        linkedin: ''
+
+    })
+
+    const handleChange = (prop,value)=>{
+        const currentContact = {...contact};
+       currentContact[prop] = value;
+       setContact(currentContact);
+    }
+
+    console.log(contact);
 
     const handleContinueClick = (e) =>{
         e.preventDefault();
@@ -26,23 +37,23 @@ function Contact({onContinueClick}){
             
            <form className="contactForm" onSubmit={handleContinueClick}>
                 <div className="fullName">
-                    <Input name = "First name" type = "text" value={ firstName } onChange = {(e)=> setFirstName(e.target.value)} />
-                    <Input name = "Last name" type = "text" value={ lastName } onChange = {(e)=> setLastName(e.target.value)} />
+                    <Input name = "First name" type = "text" value={ contact.firstName } onChange = {(e)=> handleChange('firstName',e.target.value)} />
+                    <Input name = "Last name" type = "text" value={ contact.lastName } onChange = {(e)=> handleChange('lastName',e.target.value)} />
                 </div>
 
                 <div className="phone">
-                    <Input name= "Phone number" type = "tel" value={ phone } onChange = {(e)=> setPhone(e.target.value)} />
+                    <Input name= "Phone number" type = "tel" value={ contact.phone } onChange = {(e)=> handleChange('phone',e.target.value)} />
                 </div>
 
                 <div className="countrySelection fullName">
-                    <Country/>
-                    <Input name="City" type="Text" value={city} onChange={(e)=> setCity(e.target.value)} />
+                    <Country name ="Country" value={contact.country} onChange={(selectedOption)=>handleChange('country',selectedOption.label)}/>
+                    <Input name="City" type="Text" value={contact.city} onChange={(e)=> handleChange ('city',e.target.value)} />
                 </div>
                 <div className="email">
-                    <Input name = "Email" type = "email" value={ email } onChange = {(e)=> setEmail(e.target.value)} />
+                    <Input name = "Email" type = "email" value={ contact.email } onChange = {(e)=> handleChange("email",e.target.value)} />
                 </div>
                 <div className="linkedin">
-                    <Input name = "LinkedIn (Optional)" type = "text" value={ linkedin } onChange = {(e)=> setLinkedin(e.target.value)} />
+                    <Input name = "LinkedIn (Optional)" type = "text" value={ contact.linkedin } onChange = {(e)=> handleChange('linkedin',e.target.value)} />
                 </div>
 
                 <div className="contactBtn">

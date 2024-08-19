@@ -1,0 +1,66 @@
+.resumeHeader{
+    display: flex;
+    justify-content: flex-start;
+    gap: 0.6em;
+    padding: 1em 1em 0em 1em;
+    margin: 1em 0.5em 0em 0.5em;
+}
+.resumeHeader h1{
+    font-size:32px;
+    font-weight: 700;
+    color: #050505;
+    line-height: 42px;
+    font-family: "poppins";
+    letter-spacing: 0.05em;
+}
+
+.jobTitle{
+    display: flex;
+    justify-content: flex-start;
+    margin: 0em 0.5em 0em 0.5em;
+    padding: 0em 1em;
+}
+.jobTitle h2{
+    font-size: 15px;
+    line-height: 25px;
+    color: #00637C;
+    font-family: "Poppins";
+    letter-spacing: 0.05em;
+}
+
+
+.contactResume{
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    flex-wrap: wrap;
+    margin: 0em 0.5em 0em 0.5em;
+    padding: 0em 1em;
+    
+}
+
+.box{
+    display: flex;
+    align-items: center;
+    border: 1px solid #e0f2fe;
+    font-family: Open Sans;
+    font-size: 0.8em;
+    font-weight: 400;
+    line-height: 14px;
+    background: #e0f2fe;
+    margin: 5px;
+    padding: 6px 10px;
+    border-radius: 4px;
+    height: 3.5em;
+}
+
+img{
+    height: 30px;
+    width: 30px;
+}
+
+.txt{
+    font-size: 1em;
+    letter-spacing: 0.06em;
+    padding-left: 10px;
+}

@@ -4,7 +4,7 @@ import countryList from 'react-select-country-list';
 import '../styles/contact.css'
 import { SingleValue } from 'react-select/animated';
 
-const Country = () => {
+const Country = ({onChange}) => {
   const options = countryList().getData();
 
   const customStyles = {
@@ -31,9 +31,10 @@ const Country = () => {
     A11yText: () => null,
   };
 
-  const handleChange = (selectedOption) => {
+  const handleCountryChange = (selectedOption) => {
     console.log(`Selected country: ${selectedOption.label}`);
-  };
+    onChange(selectedOption); // Pass the selected option back to the parent
+};
 
 
   return (
@@ -42,7 +43,7 @@ const Country = () => {
         options={options}
         className='inputData'
         styles={customStyles}
-        onChange={handleChange}
+        onChange={handleCountryChange}
         placeholder="Select a country"
         isSearchable={true}
         components={customComponents}

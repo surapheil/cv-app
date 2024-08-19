@@ -15,6 +15,7 @@ import Navigation from './navigation/Navigation';
 import ExperienceSummary from './components/ExperienceSummary';
 import AddReference from './components/AddRef';
 import './App.css';
+import Resume from './cv/resume';
 
 function App() {
   const [isActive, setIsActive] = useState('contact');
@@ -79,62 +80,67 @@ function App() {
         <Navigation setIsActive={setIsActive} isActive={isActive} />
       </div>
       <div className='main'>
-        {isActive === 'contact' && <Contact onContinueClick={onContinueClick} />} 
-        {isActive === 'experience' && (
-          <Experiance 
-            onExperianceBackClick={onExperienceBackClick} 
-            onExperienceContinueClick={onExperienceContinueClick} 
-          />
-        )}
-        {isActive === 'experienceSummary' && (
-          <ExperienceSummary 
-            onExperienceSummaryContinueClick={onExperienceSummaryContinueClick} 
-            onContinueClick={onContinueClick} 
-          />
-        )}
-        {isActive === 'education' && (
-          <Education 
-            onEducationContinueClick={onEducationContinueClick} 
-            onExperienceContinueClick={onExperienceContinueClick} 
-          />
-        )}
-        {isActive === 'certification' && (
-          <Certifications 
-            onExperienceSummaryContinueClick={onExperienceSummaryContinueClick} 
-            onCertificateContinueClick={onCertificateContinueClick} 
-          />
-        )}
-        {isActive === 'skill' && (
-          <Skills 
-            onEducationContinueClick={onEducationContinueClick} 
-            onSkillsContinueClick={onSkillsContinueClick} 
-          />
-        )}
-        {isActive === 'summary' && (
-          <Summary 
-            onSummaryContinueClick={onSummaryContinueClick} 
-            onCertificateContinueClick={onCertificateContinueClick} 
-          />
-        )}
-        {isActive === 'reference' && (
-          <Reference 
-            addReferenceClick={addReferenceClick} 
-            toFinalizeClick={toFinalizeClick} 
-          />
-        )}
-        {isActive === 'finalize' && (
-          <Finalize 
-            onSummaryContinueClick={onSummaryContinueClick} 
-            onFinalizeContinueClick={onFinalizeContinueClick} 
-          />
-        )}
-        {isActive === 'addReference' && (
-          <AddReference 
-            onSummaryContinueClick={onSummaryContinueClick} 
-            toFinalizeClick={toFinalizeClick} 
-          />
-        )}
-        {isActive === 'finalizeContinue' && renderCurrentSection()}
+        <div className='leftMain'>
+          {isActive === 'contact' && <Contact onContinueClick={onContinueClick} />} 
+          {isActive === 'experience' && (
+            <Experiance 
+              onExperianceBackClick={onExperienceBackClick} 
+              onExperienceContinueClick={onExperienceContinueClick} 
+            />
+          )}
+          {isActive === 'experienceSummary' && (
+            <ExperienceSummary 
+              onExperienceSummaryContinueClick={onExperienceSummaryContinueClick} 
+              onContinueClick={onContinueClick} 
+            />
+          )}
+          {isActive === 'education' && (
+            <Education 
+              onEducationContinueClick={onEducationContinueClick} 
+              onExperienceContinueClick={onExperienceContinueClick} 
+            />
+          )}
+          {isActive === 'certification' && (
+            <Certifications 
+              onExperienceSummaryContinueClick={onExperienceSummaryContinueClick} 
+              onCertificateContinueClick={onCertificateContinueClick} 
+            />
+          )}
+          {isActive === 'skill' && (
+            <Skills 
+              onEducationContinueClick={onEducationContinueClick} 
+              onSkillsContinueClick={onSkillsContinueClick} 
+            />
+          )}
+          {isActive === 'summary' && (
+            <Summary 
+              onSummaryContinueClick={onSummaryContinueClick} 
+              onCertificateContinueClick={onCertificateContinueClick} 
+            />
+          )}
+          {isActive === 'reference' && (
+            <Reference 
+              addReferenceClick={addReferenceClick} 
+              toFinalizeClick={toFinalizeClick} 
+            />
+          )}
+          {isActive === 'finalize' && (
+            <Finalize 
+              onSummaryContinueClick={onSummaryContinueClick} 
+              onFinalizeContinueClick={onFinalizeContinueClick} 
+            />
+          )}
+          {isActive === 'addReference' && (
+            <AddReference 
+              onSummaryContinueClick={onSummaryContinueClick} 
+              toFinalizeClick={toFinalizeClick} 
+            />
+          )}
+          {isActive === 'finalizeContinue' && renderCurrentSection()}
+        </div>
+        <div className='rightMain'>
+          <Resume/>
+        </div>
       </div>
     </div>
   );
