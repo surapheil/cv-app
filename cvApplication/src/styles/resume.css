@@ -1,3 +1,9 @@
+.resume{
+    overflow: hidden;
+    overflow-y: scroll;
+    
+}
+
 .resumeHeader{
     display: flex;
     justify-content: flex-start;
@@ -63,4 +69,89 @@ img{
     font-size: 1em;
     letter-spacing: 0.06em;
     padding-left: 10px;
+}
+
+.proffesionalSummary{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1em 1em 0em 1em;
+    margin: 0.4em 0.5em 0em 0.5em;
+}
+
+.summaryTitle{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 0em 0em 0.8em 0em;
+    width: 50%;
+    
+}
+
+.underline{
+    content: "";
+    background-color: #1e666f;
+    height: 2px;
+    width: 100%;
+    bottom: 0px;
+    opacity: 0.2;
+    margin:0.15em 0em 0em 0em;
+}
+
+.summaryText{
+    display: flex;
+    justify-content: flex-start;
+    text-align: justify;
+}
+
+.skillsResume{
+    display: flex;
+    flex-direction: column;
+    padding: 1em 1em 0em 1em;
+    margin: 0.4em 0.5em 0em 0.5em;
+}
+
+.skillsContainer{
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.experianceResume{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5em;
+    padding: 1em 1em 0em 1em;
+    margin: 0.4em 0.5em 0em 0.5em;
+}
+
+.experienceJobTitle{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 0.8em 0em -0.3em 0.4em;
+    width: 50%;   
+}
+
+.experianceHeading{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0.6em;
+}
+
+.employmentJobStatus{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0.6em;
+}
+
+.companyName{
+    font-size: 18px;
+    line-height: 25px;
+    color: #00637C;
+    font-family: "Poppins";
+    letter-spacing: 0.05em;
 }
