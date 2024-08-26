@@ -56,7 +56,7 @@ const Resume = ()=>{
                     <div className="box">Communication and Interpersonal Skills</div>
                 </div>
             </div>
-            <div className="experienceResume">
+            <div className="experienceResumeContainer">
                 <h2 className='experienceJobTitle'>
                     EXPERIENCE 
                     <div className='underline'></div>
@@ -105,6 +105,40 @@ const Resume = ()=>{
                         </ul>
                     </div>
                 </div>    
+            </div>
+            <div className="educationResumeContainer">
+                <h2 className='educationTitle'>
+                    EDUCATION 
+                    <div className='underline'></div>
+                </h2>
+                <div className="educationDetail">
+                    <div className='educationHeading'>
+                        <h3 className='educationField'>Bachelor of Science (B.S.) in mechanical Engineering,</h3>
+                        <h3 className='educationPlace'>Addis Ababa</h3>
+                    </div>
+                    <div className='educationStatus'>
+                        <div className='educationSchoolAndDuration'>
+                            <p className="companyName">AddisAbaba University,</p>
+                            <p className='employmentDuration'>August,2023</p>
+                        </div>
+                        <div>
+                            <p className='grade'>GPA 3.62</p>
+                        </div>
+                    </div>   
+                </div>
+            </div>
+            <div className="certificationResumeContainer educationResumeContainer">
+                <div className='certicicationTitle educationTitle'>
+                    <h2 className='certificationTitle'>CERTIFICATIONS</h2>
+                    <div className='underline'></div>
+                </div>
+                <div className='certificationNames'>
+                    <ul className='certificationLists'>
+                        <li>Sponsorship and Partnership coordinator</li>
+                        <li>2D & 3D Modeling </li>
+                    </ul>
+                </div>
+
             </div>
         </div>
     )

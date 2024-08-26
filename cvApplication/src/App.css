@@ -14,11 +14,12 @@
 .main{
   display: flex;
   width: 100%;
-  height: 100vh;
+  height: auto;
   object-fit: cover;
   background-color:  #f3f8ff;
   border: 1px solid #f3f8ff;
   border-radius: 2em;
+  box-sizing: border-box;
 
 }
 
@@ -26,7 +27,11 @@
   border: 1px solid #111;
   border-radius: 0.7em;
   width: 50%;
-  height: 90vh;
+  height: auto;
   background-color: #fff;
   margin-top: 1.5em;
+  box-sizing: border-box;
+  margin: 1.2em 0 1.2em 0;
+  
 }
+
