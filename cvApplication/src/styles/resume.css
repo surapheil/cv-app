@@ -1,6 +1,7 @@
 .resume{
     box-sizing: border-box;
     overflow-y: auto;
+    padding-bottom: 3em;
 }
 
 .resumeHeader{
@@ -211,6 +212,23 @@ img{
     justify-content: flex-start;
     gap: 2em;
     list-style-position: inside;
+}
+
+.languagesLists{
+    display: flex;
+    justify-content: flex-start;
+    list-style-position: inside;
+    gap: 3.5em;
+}
+
+.langProficiency{
+    padding-left: 1em;
+    padding-top: 0.6em;
+    font-size: 16px;
+    line-height: 23px;
+    color: #00637C;
+    font-family: "Poppins";
+    letter-spacing: 0.05em;
 }
 
 .resume::-webkit-scrollbar {

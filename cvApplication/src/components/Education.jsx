@@ -8,13 +8,14 @@ import '../styles/contact.css';
 import '../assets/yearSelection';
 import YearSelection from '../assets/yearSelection';
 import { useState } from 'react';
-function Education({onExperienceContinueClick,onEducationContinueClick}){
-    const [schoolName,setSchoolName] = useState('');
-    const [schoolLocation,setSchoolLocation] = useState('');
-    const [educationLevel,setEducationLevel] = useState('');
-    const [fieldOfStudy,setFieldOfStudy] = useState('');
-    const [month,setMonth] = useState('');
-    const [year,setYear] = useState('');
+function Education({education,setEducation,onExperienceContinueClick,onEducationContinueClick}){
+  
+
+    const handleChange = (prop,value) =>{
+        const currentEducation = {...education};
+        currentEducation[prop] = value;
+        setEducation(currentEducation);
+    }
     return(
         <div className="education">
             <div className="contactHeader">
@@ -23,19 +24,19 @@ function Education({onExperienceContinueClick,onEducationContinueClick}){
             </div>
             <form className="educationForm">
                 <div className="educationDescription">
-                    <Input type="text" value={ schoolName } name="School name" onChange={(e)=>setSchoolName(e.target.value)}/>
-                    <Input type="text" value={ schoolLocation } name="School location" onChange={(e)=>setSchoolLocation(e.target.value)} />
+                    <Input type="text" value={ education.schoolName } name="School name" onChange={(e)=>handleChange('schoolName',e.target.value)}/>
+                    <Input type="text" value={ education.schoolLocation } name="School location" onChange={(e)=>handleChange('schoolLocation',e.target.value)} />
                 </div>
                 <div className='educationProgram'>
-                    <Input type="text" value={educationLevel} name="Education level" onChange={(e)=>setEducationLevel(e.target.value)}/>
-                    <Input type="text" value={fieldOfStudy} name="Field of study" onChange={(e)=>setFieldOfStudy(e.target.value)}/>
+                    <Input type="text" value={education.educationLevel} name="Education level" onChange={(e)=>handleChange('educationLevel',e.target.value)}/>
+                    <Input type="text" value={education.fieldOfStudy} name="Field of study" onChange={(e)=>handleChange('fieldOfStudy',e.target.value)}/>
                 </div>
                 <div className='graduationTiming'>
-                    <MonthInput name="Graduation month" value={month} onChange={(e)=>setMonth(e.target.value)} />
-                    <YearSelection name="Graduation year" value={year} onChange={(e)=>setYear(e.target.value)} />
+                    <MonthInput name="Graduation month" value={education.month} onChange={(selectedOption)=>handleChange('month',selectedOption)} />
+                    <YearSelection name="Graduation year" value={education.year} onChange={(selectedOption)=>handleChange('year',selectedOption)} />
                 </div>
                 <div className="gradeReport">
-                    <Input type="text" name="GPA score"/>
+                    <Input type="text" name="GPA score" value={education.GPA} onChange={(e)=>handleChange('GPA',e.target.value)}/>
                 </div>
                 <div className='educationButton experianceButton'>
                     <Button type="button" value="Back" onClick={onExperienceContinueClick} className="backButton"/>

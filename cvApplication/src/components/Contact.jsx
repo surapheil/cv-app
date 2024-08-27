@@ -3,18 +3,8 @@ import "../styles/contact.css";
 import Country from "../assets/Country";
 
 
-function Contact({onContinueClick}){
-    const [contact,setContact] = useState({
-        firstName:'',
-        lastName:'',
-        email:'',
-        phone:'',
-        country: '',
-        city: '',
-        linkedin: ''
-
-    })
-
+function Contact({contact,setContact,onContinueClick}){
+   
     const handleChange = (prop,value)=>{
         const currentContact = {...contact};
        currentContact[prop] = value;
@@ -53,7 +43,7 @@ function Contact({onContinueClick}){
                     <Input name = "Email" type = "email" value={ contact.email } onChange = {(e)=> handleChange("email",e.target.value)} />
                 </div>
                 <div className="linkedin">
-                    <Input name = "LinkedIn (Optional)" type = "text" value={ contact.linkedin } onChange = {(e)=> handleChange('linkedin',e.target.value)} />
+                    <Input name = "Job Title" type = "text" value={ contact.jobTitle } onChange = {(e)=> handleChange('jobTitle',e.target.value)} />
                 </div>
 
                 <div className="contactBtn">

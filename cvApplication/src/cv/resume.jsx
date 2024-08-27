@@ -3,30 +3,30 @@ import phoneIcon from './icon/telephone.png';
 import emailIcon from './icon/email.png';
 import locationIcon from './icon/gps.png';
 
-const Resume = ()=>{
+const Resume = ({contact,content,skills,education})=>{
     return (
         <div className="resume">
             <div className="resumeHeader">
-                <h1 className="firstName">Surafel</h1>
-                <h1 className="lastName">Gashu</h1>
+                <h1 className="firstName">{contact.firstName}</h1>
+                <h1 className="lastName">{contact.lastName}</h1>
             </div>
             <div className='jobTitle'>
-                <h2 className='title'>Project Coordinator</h2>
+                <h2 className='title'>{contact.jobTitle}</h2>
             </div>
 
             <div className='contactResume'>
                 <div className='phoneResume box'>
                     <img src={phoneIcon} alt="Phone Number"  />                   
-                    <p className='txt'>+251942869673</p>
+                    <p className='txt'>{contact.phone}</p>
                 </div>
                 <div className="resumeEmail box">
                     <img src={emailIcon} alt="email Icon" />                   
-                    <p className='txt'>surafellamesgin@gmail.com</p>
+                    <p className='txt'>{contact.email}</p>
                 </div>
                 <div className="resumeLocation box">
                     <img src={locationIcon} alt="locationIcon" />    
-                    <p className='txt'>Ethiopia,</p>
-                    <p className='txt'>Addis Ababa</p>
+                    <p className='txt'>{contact.country},</p>
+                    <p className='txt'>{contact.city}</p>
                 </div>
             </div>
             <div className='proffesionalSummary'>
@@ -35,10 +35,7 @@ const Resume = ()=>{
                     <div className='underline'></div>
                 </h2>
                 <div className='summaryText'>
-                    Results-oriented Mechanical Engineer with a BSc degree from Addis Ababa University,graduating with Great Distinction. Proven track record in project management, 
-                    operational excellence, and partnership coordination.Skilled in driving efficiency improvements, securing sponsorships,
-                    and organizing successful events.Strong communicator and leader fluent in both Amharic and English,
-                    committed to driving innovation and collaboration for impactful outcomes.
+                    {content}
                 </div>
             </div>
             <div className="skillsResume">
@@ -47,13 +44,9 @@ const Resume = ()=>{
                     <div className='underline'></div>
                 </h2>
                 <div className="skillsContainer">
-                    <div className="box">Project Managment</div>
-                    <div className="box">Project Coordination</div>
-                    <div className="box">Team leadership and Coordination</div>
-                    <div className="box">Sponsorship Aquisition</div>
-                    <div className="box">Partnership Development</div>
-                    <div className="box">Event Planning and Managment</div>
-                    <div className="box">Communication and Interpersonal Skills</div>
+                    {skills.map((skill, index) => (
+                        <div key={index} className="box">{skill}</div>
+                    ))} 
                 </div>
             </div>
             <div className="experienceResumeContainer">
@@ -113,16 +106,16 @@ const Resume = ()=>{
                 </h2>
                 <div className="educationDetail">
                     <div className='educationHeading'>
-                        <h3 className='educationField'>Bachelor of Science (B.S.) in mechanical Engineering,</h3>
-                        <h3 className='educationPlace'>Addis Ababa</h3>
+                        <h3 className='educationField'>{education.educationLevel} in {education.fieldOfStudy},</h3>
+                        <h3 className='educationPlace'>{education.schoolLocation}</h3>
                     </div>
                     <div className='educationStatus'>
                         <div className='educationSchoolAndDuration'>
-                            <p className="companyName">AddisAbaba University,</p>
-                            <p className='employmentDuration'>August,2023</p>
+                            <p className="companyName">{education.schoolName},</p>
+                            <p className='employmentDuration'>{education.month} {education.year}</p>
                         </div>
                         <div>
-                            <p className='grade'>GPA 3.62</p>
+                            <p className='grade'>GPA {education.GPA}</p>
                         </div>
                     </div>   
                 </div>
@@ -138,7 +131,25 @@ const Resume = ()=>{
                         <li>2D & 3D Modeling </li>
                     </ul>
                 </div>
+            </div>
+            <div className="languageResumeContainer educationResumeContainer">
+                <div className="languageTitle educationTitle">
+                    <h2 className='languageHeader '>LANGUAGES</h2>
+                    <div className='underline'></div>
+                </div>
+                <div className="certificationNames">
+                    <ul className='languagesLists'>
+                        <li className='langContainer'>
+                            Amharic
+                            <div className='langProficiency'>Native</div>
+                        </li>
 
+                        <li className='langContainer'>
+                            English
+                            <div className='langProficiency'>Fluent</div>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     )

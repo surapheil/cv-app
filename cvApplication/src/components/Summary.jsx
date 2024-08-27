@@ -3,8 +3,7 @@ import Button from '../assets/Button';
 import Textarea from '../assets/Textarea';
 import '../styles/contact.css';
 
-const Summary = ({onCertificateContinueClick,onSummaryContinueClick }) => {
-  const [content, setContent] = useState('');
+const Summary = ({content,setContent,onCertificateContinueClick,onSummaryContinueClick }) => {
   const textAreaRef = useRef(null);
 
   const [bold,setBold] = useState(false);

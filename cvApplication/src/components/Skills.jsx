@@ -4,8 +4,7 @@ import Button from "../assets/Button";
 import '../styles/contact.css';
 import addIcon from '../assets/images/plus-icon_11985505.png';
 
-function Skills({onEducationContinueClick,onSkillsContinueClick}){
-    let [skills,setSkills] = useState(['']);
+function Skills({skills,setSkills,onEducationContinueClick,onSkillsContinueClick}){
   
     const handleDelete=(indexToDelete)=>{
         setSkills(skills.filter((_,index)=>index !== indexToDelete));

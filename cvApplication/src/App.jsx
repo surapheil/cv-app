@@ -74,6 +74,31 @@ function App() {
     }
   };
 
+  const [contact,setContact] = useState({
+    firstName:'',
+    lastName:'',
+    email:'',
+    phone:'',
+    country: '',
+    city: '',
+    jobTitle: ''
+
+})
+
+const [education, setEducation] = useState({
+  schoolName:'',
+  schoolLocation:'',
+  educationLevel:'',
+  fieldOfStudy:'',
+  month:'',
+  year:'',
+  GPA:''
+});
+
+const [content, setContent] = useState('');
+
+let [skills,setSkills] = useState(['']);
+
   return (
     <div className='container'>
       <div className='leftNavigation'>
@@ -81,7 +106,7 @@ function App() {
       </div>
       <div className='main'>
         <div className='leftMain'>
-          {isActive === 'contact' && <Contact onContinueClick={onContinueClick} />} 
+          {isActive === 'contact' && <Contact onContinueClick={onContinueClick} contact={contact} setContact={setContact} />} 
           {isActive === 'experience' && (
             <Experiance 
               onExperianceBackClick={onExperienceBackClick} 
@@ -98,6 +123,8 @@ function App() {
             <Education 
               onEducationContinueClick={onEducationContinueClick} 
               onExperienceContinueClick={onExperienceContinueClick} 
+              education={education}
+              setEducation={setEducation}
             />
           )}
           {isActive === 'certification' && (
@@ -109,13 +136,17 @@ function App() {
           {isActive === 'skill' && (
             <Skills 
               onEducationContinueClick={onEducationContinueClick} 
-              onSkillsContinueClick={onSkillsContinueClick} 
+              onSkillsContinueClick={onSkillsContinueClick}
+              skills={skills}
+              setSkills={setSkills} 
             />
           )}
           {isActive === 'summary' && (
             <Summary 
               onSummaryContinueClick={onSummaryContinueClick} 
               onCertificateContinueClick={onCertificateContinueClick} 
+              content={content}
+              setContent={setContent}
             />
           )}
           {isActive === 'reference' && (
@@ -139,7 +170,7 @@ function App() {
           {isActive === 'finalizeContinue' && renderCurrentSection()}
         </div>
         <div className='rightMain'>
-          <Resume/>
+          <Resume contact={contact} content={content} skills={skills} education={education}/>
         </div>
       </div>
     </div>

@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useState } from "react";
 
-function YearSelection({name}){
+function YearSelection({name,onChange}){
     let [isValid,setIsValid] = useState(false);
     let [isFocused,setIsFocused] = useState(false);
 
@@ -23,6 +23,11 @@ function YearSelection({name}){
         setIsFocused(false);
     },[]);
 
+    const handleYearChange = (e) =>{
+        const selectedOption = e.target.value;
+        onChange(selectedOption); 
+    }
+
     return(
         <div className="yearContainer">
             <select 
@@ -30,6 +35,7 @@ function YearSelection({name}){
                 id="selectMonth"
                 onFocus={handleFocus}
                 onBlur={handleBlur} 
+                onChange={handleYearChange}
                 required
              >
                 <option value=""></option>

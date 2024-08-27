@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-function MonthInput({name}){
+function MonthInput({name,onChange}){
         let [isValid,setIsValid] = useState(false);
         let [isFocused,setIsFocused] = useState(false);
 
@@ -22,13 +22,19 @@ function MonthInput({name}){
             setIsFocused(false);
         },[]);
 
+    const handleMonthChange = (e)=>{
+        const selectedOption = e.target.value;
+        onChange(selectedOption);
+    }    
+
     return(
         <div className="monthSelection">
             <select 
                 className="months selection" 
                 id="monthSelect"
                 onFocus={handleFocus}
-                onBlur={handleBlur} 
+                onBlur={handleBlur}
+                onChange={handleMonthChange} 
                 required
             >
                 <option value=""></option>
