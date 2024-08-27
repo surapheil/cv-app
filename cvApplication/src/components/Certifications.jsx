@@ -4,9 +4,8 @@ import Button from "../assets/Button";
 import '../styles/contact.css';
 import addIcon from '../assets/images/plus-icon_11985505.png';
 
-function Certifications({onExperienceSummaryContinueClick,onCertificateContinueClick}){
-    let [certification,setCertifications] = useState(['']);
-  
+function Certifications({certification,setCertifications,onExperienceSummaryContinueClick,onCertificateContinueClick}){
+
     const handleDelete=(indexToDelete)=>{
         setCertifications(certification.filter((_,index)=>index !== indexToDelete));
 

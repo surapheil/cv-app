@@ -3,7 +3,7 @@ import phoneIcon from './icon/telephone.png';
 import emailIcon from './icon/email.png';
 import locationIcon from './icon/gps.png';
 
-const Resume = ({contact,content,skills,education})=>{
+const Resume = ({contact,content,skills,education,certification,languages})=>{
     return (
         <div className="resume">
             <div className="resumeHeader">
@@ -127,8 +127,9 @@ const Resume = ({contact,content,skills,education})=>{
                 </div>
                 <div className='certificationNames'>
                     <ul className='certificationLists'>
-                        <li>Sponsorship and Partnership coordinator</li>
-                        <li>2D & 3D Modeling </li>
+                        {certification.map((cert,index)=>(
+                            <li key={index}>{cert}</li>
+                        ))}
                     </ul>
                 </div>
             </div>
@@ -139,15 +140,12 @@ const Resume = ({contact,content,skills,education})=>{
                 </div>
                 <div className="certificationNames">
                     <ul className='languagesLists'>
-                        <li className='langContainer'>
-                            Amharic
-                            <div className='langProficiency'>Native</div>
-                        </li>
-
-                        <li className='langContainer'>
-                            English
-                            <div className='langProficiency'>Fluent</div>
-                        </li>
+                        {languages.map((lang,index)=>(
+                            <li key={index} className='langContainer'>
+                                {lang.name}
+                                <div className='langProficiency'>{lang.proficiency}</div>
+                            </li>
+                        ))}
                     </ul>
                 </div>
             </div>

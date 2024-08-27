@@ -62,7 +62,7 @@ function App() {
     const currentSection = finalizeOrder[currentIndex];
     switch (currentSection) {
       case 'Languages':
-        return <Languages handlePrevSection={handlePrevSection}  handleNextSection={handleNextSection} />;
+        return <Languages handlePrevSection={handlePrevSection} languages={languages} setLanguages={setLanguages}  handleNextSection={handleNextSection} />;
       case 'Volunteer':
         return <Volunteer handlePrevSection={handlePrevSection}  handleNextSection={handleNextSection} />;
       case 'Awards':
@@ -99,6 +99,15 @@ const [content, setContent] = useState('');
 
 let [skills,setSkills] = useState(['']);
 
+let [certification,setCertifications] = useState(['']);
+
+let [languages,setLanguages] = useState(
+  [{
+      name: '',
+      proficiency: '',
+  }]
+);
+
   return (
     <div className='container'>
       <div className='leftNavigation'>
@@ -131,6 +140,8 @@ let [skills,setSkills] = useState(['']);
             <Certifications 
               onExperienceSummaryContinueClick={onExperienceSummaryContinueClick} 
               onCertificateContinueClick={onCertificateContinueClick} 
+              certification={certification}
+              setCertifications={setCertifications}
             />
           )}
           {isActive === 'skill' && (
@@ -170,7 +181,7 @@ let [skills,setSkills] = useState(['']);
           {isActive === 'finalizeContinue' && renderCurrentSection()}
         </div>
         <div className='rightMain'>
-          <Resume contact={contact} content={content} skills={skills} education={education}/>
+          <Resume contact={contact} content={content} skills={skills} education={education} certification={certification} languages={languages}/>
         </div>
       </div>
     </div>

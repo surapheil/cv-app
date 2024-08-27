@@ -5,13 +5,7 @@ import '../styles/Education.css';
 import '../styles/Experiance.css';
 import Button from "../assets/Button";
 import addIcon from '../assets/images/plus-icon_11985505.png';
-function Languages({handlePrevSection,handleNextSection}){
-    let [languages,setLanguages] = useState(
-        [{
-            name: '',
-            proficiency: '',
-        }]
-    )
+function Languages({ languages,setLanguages,handlePrevSection,handleNextSection}){
 
     const handleAddLanguages = (e)=>{
         e.preventDefault();
