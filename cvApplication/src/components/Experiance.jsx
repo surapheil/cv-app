@@ -7,7 +7,7 @@ import MonthInput from '../assets/monthSelection';
 import YearSelection from '../assets/yearSelection';
 
 
-function Experiance({onExperianceBackClick,onExperienceContinueClick}){
+function Experiance({onChange,onExperianceBackClick,onExperienceContinueClick}){
     const [JobTitle,setJobTitle] = useState('');
     const [Company,setCompany] = useState('');
     const [Country,setCountry] = useState('');
@@ -49,12 +49,12 @@ function Experiance({onExperianceBackClick,onExperienceContinueClick}){
                     <Input name="City" value={ City } onChange={(e)=>setCity(e.target.value)}/>
                 </div>
                 <div className='graduationTiming'>
-                    <MonthInput name="Start month" value={startMonth} onChange={(e)=>setStartMonth(e.target.value)} />
-                    <YearSelection name="Start year" value={startYear} onChange={(e)=>setStartYear(e.target.value)} />
+                    <MonthInput name="Start month" value={startMonth} onChange={(selectedOption)=>setStartMonth(selectedOption)} />
+                    <YearSelection name="Start year" value={startYear} onChange={(selectedOption)=>setStartYear(selectedOption)} />
                 </div>
                 <div className='graduationTiming'>
-                    <MonthInput name="End months" value={endMonth} onChange={(e)=>setEndMonth(e.target.value)} />
-                    <YearSelection name="End year" value={endYear} onChange={(e)=>setEndYear(e.target.value)} />
+                    <MonthInput name="End months" value={endMonth} onChange={(selectedOption)=>setEndMonth(selectedOption)} />
+                    <YearSelection name="End year" value={endYear} onChange={(selectedOption)=>setEndYear(selectedOption)} />
                 </div>
                 <div className='experianceCheckBox'>
                     <input  type="checkbox"/>

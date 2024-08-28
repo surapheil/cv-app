@@ -104,14 +104,14 @@ function App() {
 
 })
 
-const [education, setEducation] = useState({
-  schoolName:'',
-  schoolLocation:'',
-  educationLevel:'',
-  fieldOfStudy:'',
-  month:'',
-  year:'',
-  GPA:''
+  const [education, setEducation] = useState({
+    schoolName:'',
+    schoolLocation:'',
+    educationLevel:'',
+    fieldOfStudy:'',
+    month:'',
+    year:'',
+    GPA:''
 });
 
 const [content, setContent] = useState('');
@@ -128,8 +128,7 @@ let [languages,setLanguages] = useState(
 );
 
 
-
-  return (
+return (
     <div className='container'>
       <div className='leftNavigation'>
         <Navigation setIsActive={setIsActive} isActive={isActive} />

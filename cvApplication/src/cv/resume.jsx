@@ -34,8 +34,9 @@ const Resume = ({contact,experiances,content,skills,education,certification,lang
                     PROFFESSIONAL SUMMARY
                     <div className='underline'></div>
                 </h2>
-                <div className='summaryText'>
-                    {content}
+                <div className='summaryText'
+                    dangerouslySetInnerHTML={{ __html: content }} 
+                >
                 </div>
             </div>
             <div className="skillsResume">
@@ -54,51 +55,25 @@ const Resume = ({contact,experiances,content,skills,education,certification,lang
                     EXPERIENCE 
                     <div className='underline'></div>
                 </h2>
-                <div className='experianceResume'>
+               { experiances.map((exp,index)=>(
+
+                <div key={index} className='experianceResume'>    
                     <div className='experianceHeading'>
-                        <h3 className='experianceJobTitle'>Projects and Operation Excellence Coordinator,</h3>
-                        <h3 className='experianceJobPlace'>Addis Ababa</h3>
+                        <h3 className='experianceJobTitle'>{exp.JobTitle},</h3>
+                        <h3 className='experianceJobPlace'>{exp.City}</h3>
                     </div>
                     <div className='employmentJobStatus'>
-                        <p className="companyName">Hilina Enriched Foods,</p>
-                        <p className='employmentDuration'>August,2023 - Present</p>
+                        <p className="companyName">{exp.Company},</p>
+                        <p className='employmentDuration'>{exp.startMonth}, {exp.startYear} - {exp.endMonth}, {exp.endYear}</p>
                     </div>
-                    <div className='jobResponsibilities'>
-                        <ul className='responsiblities'>
-                            <li>Led projects focused on implementing operational
-                                excellence methodologies, including 5S implementation,
-                                resulting in signiﬁcant improvements: Increased machine
-                                availability by 6% , Improved machine performance by 15%
-                                ,Enhanced product quality by 0.12% ,Achieved a 16%
-                                increase in overall equipment eﬃciency with in 9 months.
-                            </li>
-                            <li>
-                                Coordinated production, quality, and technical teams to
-                                implement the 5S methods.
-                            </li>
-                            <li>
-                                restructured the training system for new employees and
-                                organized refreshment trainings for management staﬀ .
-                            </li>
-                            <li>
-                                Developed and maintained dashboards for coordinating
-                                technical, production, and quality teams, facilitating
-                                eﬀective communication and decision-making.
-                            </li>
-                            <li>
-                                Led weekly managerial meetings involving production,
-                                quality, and technical teams, resulting in the resolution of 57
-                                corrective actions and 37 system improvements in 6 months
-                                time.
-                            </li>
-                            <li>
-                                Worked with supervisors and managers to develop
-                                schedules, monitor deadlines and coordinate resources.
-                            </li>
-                        </ul>
+                    <div className='jobResponsibilities'
+                      dangerouslySetInnerHTML={{ __html: exp.summary }} 
+                    >
+                       
                     </div>
-                </div>    
-            </div>
+                </div> 
+            ))}  
+            </div> 
             <div className="educationResumeContainer">
                 <h2 className='educationTitle'>
                     EDUCATION 
