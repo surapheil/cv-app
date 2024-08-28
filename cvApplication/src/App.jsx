@@ -21,11 +21,30 @@ function App() {
   const [isActive, setIsActive] = useState('contact');
   const [finalizeOrder, setFinalizeOrder] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [experiances,setExperiances] = useState([]);
+  console.log(experiances);
+
+  const handleAddExperience = (experianceData) =>{
+    setExperiances([...experiances, {...experianceData, summary:''}]);
+  }
+
+  const handleAddExperienceSummary = (index,summary) =>{
+    let updatedExperience = experiances.map((exp,i)=>
+      i === index ? {...exp,summary} : exp
+    );
+    setExperiances(updatedExperience);
+  }
 
   const onContinueClick = () => setIsActive('experience');
   const onExperienceBackClick = () => setIsActive('contact');
-  const onExperienceContinueClick = () => setIsActive('experienceSummary');
-  const onExperienceSummaryContinueClick = () => setIsActive('education');
+  const onExperienceContinueClick = (experianceData) => {
+    handleAddExperience(experianceData);
+    setIsActive('experienceSummary');
+  };
+  const onExperienceSummaryContinueClick = (summary) => {
+    handleAddExperienceSummary(experiances.length-1,summary);
+    setIsActive('education');
+  }
   const onEducationContinueClick = () => setIsActive('certification');
   const onCertificateContinueClick = () => setIsActive('skill');
   const onSkillsContinueClick = () => setIsActive('summary');
@@ -108,6 +127,8 @@ let [languages,setLanguages] = useState(
   }]
 );
 
+
+
   return (
     <div className='container'>
       <div className='leftNavigation'>
@@ -181,7 +202,7 @@ let [languages,setLanguages] = useState(
           {isActive === 'finalizeContinue' && renderCurrentSection()}
         </div>
         <div className='rightMain'>
-          <Resume contact={contact} content={content} skills={skills} education={education} certification={certification} languages={languages}/>
+            <Resume contact={contact} experiances={experiances} content={content} skills={skills} education={education} certification={certification} languages={languages}/>
         </div>
       </div>
     </div>

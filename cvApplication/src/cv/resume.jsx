@@ -3,7 +3,7 @@ import phoneIcon from './icon/telephone.png';
 import emailIcon from './icon/email.png';
 import locationIcon from './icon/gps.png';
 
-const Resume = ({contact,content,skills,education,certification,languages})=>{
+const Resume = ({contact,experiances,content,skills,education,certification,languages})=>{
     return (
         <div className="resume">
             <div className="resumeHeader">

@@ -9,11 +9,15 @@ const ExperienceSummary = ({onContinueClick,onExperienceSummaryContinueClick}) =
   const [content, setContent] = useState('');
   const textAreaRef = useRef(null);
 
+  const handleSubmit = ()=>{
+    onExperienceSummaryContinueClick(content);
+  }
+
   const [bold,setBold] = useState(false);
   const [italic,setItalic] = useState(false);
   const [underline,setUnderline] = useState(false);
   const [unorderedList,setUnorderedList] = useState(false);
-
+  
 
   const formatText = (command) =>{
       if(textAreaRef.current){
@@ -81,7 +85,7 @@ const ExperienceSummary = ({onContinueClick,onExperienceSummaryContinueClick}) =
         </div>
         <div className='educationButton experianceButton'>
               <Button type="button" value="Back" className="backButton" onClick={onContinueClick}/>
-              <Button type="submit" value="Continue" onClick={onExperienceSummaryContinueClick} className="button"/>
+              <Button type="submit" value="Continue" onClick={handleSubmit} className="button"/>
         </div>  
       </form>
       <div className="skipBtn">

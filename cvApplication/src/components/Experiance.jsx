@@ -17,6 +17,21 @@ function Experiance({onExperianceBackClick,onExperienceContinueClick}){
     const [startYear,setStartYear] = useState('');
     const [endMonth,setEndMonth] = useState('');
     const [endYear,setEndYear] = useState('');
+
+    const handleSubmit = () => {
+        const experianceData = {
+            JobTitle,
+            Company,
+            Country,
+            Province,
+            City,
+            startMonth,
+            startYear,
+            endMonth,
+            endYear
+        }
+        onExperienceContinueClick(experianceData);
+    }
     return(
         <div className='experiance'>
             <div className='contactHeaders'>
@@ -47,7 +62,7 @@ function Experiance({onExperianceBackClick,onExperienceContinueClick}){
                 </div>
                 <div className='experianceButton'>
                     <Button name ="Back" value = "Back" className="backButton" onClick={onExperianceBackClick} type="button"/>
-                    <Button name="Continue" value="Continue" className="button" onClick={onExperienceContinueClick} type="button"/>
+                    <Button name="Continue" value="Continue" className="button" onClick={handleSubmit} type="button"/>
                 </div>
             </form>
             
