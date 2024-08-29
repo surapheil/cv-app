@@ -3,33 +3,37 @@ import phoneIcon from './icon/telephone.png';
 import emailIcon from './icon/email.png';
 import locationIcon from './icon/gps.png';
 
-const Resume = ({contact,experiances,content,skills,education,certification,languages})=>{
+const Resume = ({contact,showExperienceInfo,showExperienceSummaryInfo,showLanguagesInfo,showCertificationInfo,showEducationInfo,showSkillsInfo,showContactInfo,showSummaryInfo,experiances,content,skills,education,certification,languages})=>{
     return (
         <div className="resume">
-            <div className="resumeHeader">
-                <h1 className="firstName">{contact.firstName}</h1>
-                <h1 className="lastName">{contact.lastName}</h1>
-            </div>
-            <div className='jobTitle'>
-                <h2 className='title'>{contact.jobTitle}</h2>
-            </div>
+            {showContactInfo && (
+            <>
+                <div className="resumeHeader">
+                    <h1 className="firstName">{contact.firstName}</h1>
+                    <h1 className="lastName">{contact.lastName}</h1>
+                </div>
+                <div className='jobTitle'>
+                    <h2 className='title'>{contact.jobTitle}</h2>
+                </div>
 
-            <div className='contactResume'>
-                <div className='phoneResume box'>
-                    <img src={phoneIcon} alt="Phone Number"  />                   
-                    <p className='txt'>{contact.phone}</p>
+                <div className='contactResume'>
+                    <div className='phoneResume box'>
+                        <img src={phoneIcon} alt="Phone Number"  />                   
+                        <p className='txt'>{contact.phone}</p>
+                    </div>
+                    <div className="resumeEmail box">
+                        <img src={emailIcon} alt="email Icon" />                   
+                        <p className='txt'>{contact.email}</p>
+                    </div>
+                    <div className="resumeLocation box">
+                        <img src={locationIcon} alt="locationIcon" />    
+                        <p className='txt'>{contact.country},</p>
+                        <p className='txt'>{contact.city}</p>
+                    </div>
                 </div>
-                <div className="resumeEmail box">
-                    <img src={emailIcon} alt="email Icon" />                   
-                    <p className='txt'>{contact.email}</p>
-                </div>
-                <div className="resumeLocation box">
-                    <img src={locationIcon} alt="locationIcon" />    
-                    <p className='txt'>{contact.country},</p>
-                    <p className='txt'>{contact.city}</p>
-                </div>
-            </div>
-            <div className='proffesionalSummary'>
+            </>
+        )}
+            {showSummaryInfo && (<div className='proffesionalSummary'>
                 <h2 className='summaryTitle'>
                     PROFFESSIONAL SUMMARY
                     <div className='underline'></div>
@@ -39,7 +43,9 @@ const Resume = ({contact,experiances,content,skills,education,certification,lang
                 >
                 </div>
             </div>
-            <div className="skillsResume">
+        )}
+            {showSkillsInfo && (
+                <div className="skillsResume">
                 <h2 className='skillsTitle summaryTitle'>
                     SKILLS
                     <div className='underline'></div>
@@ -50,7 +56,9 @@ const Resume = ({contact,experiances,content,skills,education,certification,lang
                     ))} 
                 </div>
             </div>
-            <div className="experienceResumeContainer">
+        )}
+            {showExperienceInfo && (
+                <div className="experienceResumeContainer">
                 <h2 className='experienceJobTitle'>
                     EXPERIENCE 
                     <div className='underline'></div>
@@ -66,15 +74,16 @@ const Resume = ({contact,experiances,content,skills,education,certification,lang
                         <p className="companyName">{exp.Company},</p>
                         <p className='employmentDuration'>{exp.startMonth}, {exp.startYear} - {exp.endMonth}, {exp.endYear}</p>
                     </div>
-                    <div className='jobResponsibilities'
+                   {showExperienceSummaryInfo && ( <div className='jobResponsibilities'
                       dangerouslySetInnerHTML={{ __html: exp.summary }} 
-                    >
-                       
+                    >                       
                     </div>
+                )}
                 </div> 
             ))}  
-            </div> 
-            <div className="educationResumeContainer">
+            </div>
+        )} 
+            {showEducationInfo && (<div className="educationResumeContainer">
                 <h2 className='educationTitle'>
                     EDUCATION 
                     <div className='underline'></div>
@@ -95,20 +104,24 @@ const Resume = ({contact,experiances,content,skills,education,certification,lang
                     </div>   
                 </div>
             </div>
-            <div className="certificationResumeContainer educationResumeContainer">
-                <div className='certicicationTitle educationTitle'>
-                    <h2 className='certificationTitle'>CERTIFICATIONS</h2>
-                    <div className='underline'></div>
+        )}
+            {showCertificationInfo && (
+                <div className="certificationResumeContainer educationResumeContainer">
+                        <div className='certicicationTitle educationTitle'>
+                            <h2 className='certificationTitle'>CERTIFICATIONS</h2>
+                            <div className='underline'></div>
+                        </div>
+                        <div className='certificationNames'>
+                            <ul className='certificationLists'>
+                                {certification.map((cert,index)=>(
+                                    <li key={index}>{cert}</li>
+                                ))}
+                            </ul>
+                        </div>
                 </div>
-                <div className='certificationNames'>
-                    <ul className='certificationLists'>
-                        {certification.map((cert,index)=>(
-                            <li key={index}>{cert}</li>
-                        ))}
-                    </ul>
-                </div>
-            </div>
-            <div className="languageResumeContainer educationResumeContainer">
+        )}
+            {showLanguagesInfo && (
+                <div className="languageResumeContainer educationResumeContainer">
                 <div className="languageTitle educationTitle">
                     <h2 className='languageHeader '>LANGUAGES</h2>
                     <div className='underline'></div>
@@ -124,6 +137,7 @@ const Resume = ({contact,experiances,content,skills,education,certification,lang
                     </ul>
                 </div>
             </div>
+        )}
         </div>
     )
 }

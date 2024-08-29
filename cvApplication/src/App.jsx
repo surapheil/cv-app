@@ -22,7 +22,15 @@ function App() {
   const [finalizeOrder, setFinalizeOrder] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [experiances,setExperiances] = useState([]);
-  console.log(experiances);
+  const [showContactInfo, setShowContactInfo] = useState(false);
+  const [showSummaryInfo,setShowSummaryInfo] = useState(false);
+  const [showEducationInfo,setShowEducationInfo] = useState(false);
+  const [showCertificationInfo,setShowCertificationInfo] = useState(false);
+  const [showSkillsInfo,setShowSkillsInfo] = useState(false);
+  const [showLanguagesInfo,setShowLanguagesInfo] =useState(false);
+  const [showExperienceInfo,setShowExperienceInfo] = useState(false);
+  const [showExperienceSummaryInfo,setShowExperienceSummaryInfo] = useState(false);
+
 
   const handleAddExperience = (experianceData) =>{
     setExperiances([...experiances, {...experianceData, summary:''}]);
@@ -35,20 +43,37 @@ function App() {
     setExperiances(updatedExperience);
   }
 
-  const onContinueClick = () => setIsActive('experience');
+  const onContinueClick = () => {
+          setIsActive('experience');
+          setShowContactInfo(true);
+  };
   const onExperienceBackClick = () => setIsActive('contact');
   const onExperienceContinueClick = (experianceData) => {
     handleAddExperience(experianceData);
     setIsActive('experienceSummary');
+    setShowExperienceInfo(true);
   };
   const onExperienceSummaryContinueClick = (summary) => {
     handleAddExperienceSummary(experiances.length-1,summary);
     setIsActive('education');
+    setShowExperienceSummaryInfo(true);
   }
-  const onEducationContinueClick = () => setIsActive('certification');
-  const onCertificateContinueClick = () => setIsActive('skill');
-  const onSkillsContinueClick = () => setIsActive('summary');
-  const onSummaryContinueClick = () => setIsActive('reference');
+  const onEducationContinueClick = () =>{
+    setIsActive('certification');
+    setShowEducationInfo(true);
+  }
+  const onCertificateContinueClick = () => {
+      setIsActive('skill')
+      setShowCertificationInfo(true)
+  };
+  const onSkillsContinueClick = () =>{ 
+      setIsActive('summary');
+      setShowSkillsInfo(true);
+  };
+  const onSummaryContinueClick = () => {
+    setIsActive('reference');
+    setShowSummaryInfo(true);
+  };
   const addReferenceClick = () => setIsActive('addReference');
   const toFinalizeClick = () => {setIsActive('finalize');}
   
@@ -62,10 +87,8 @@ function App() {
   const handleNextSection = () => {
     if (currentIndex < finalizeOrder.length - 1) {
       setCurrentIndex(currentIndex + 1);
-    } else {
-      console.log('All sections completed');
-      // Handle what happens after all sections are done
-    }
+    } 
+    setShowLanguagesInfo(true);
   };
 
   const handlePrevSection = () => {
@@ -201,7 +224,21 @@ return (
           {isActive === 'finalizeContinue' && renderCurrentSection()}
         </div>
         <div className='rightMain'>
-            <Resume contact={contact} experiances={experiances} content={content} skills={skills} education={education} certification={certification} languages={languages}/>
+            <Resume 
+              contact={contact} 
+              showExperienceInfo={showExperienceInfo} 
+              showExperienceSummaryInfo={showExperienceSummaryInfo} 
+              showLanguagesInfo={showLanguagesInfo} experiances={experiances} 
+              showCertificationInfo={showCertificationInfo} 
+              showEducationInfo={showEducationInfo} 
+              showSkillsInfo={showSkillsInfo} 
+              showSummaryInfo={showSummaryInfo} 
+              showContactInfo={showContactInfo} 
+              content={content} skills={skills} 
+              education={education} 
+              certification={certification} 
+              languages={languages}
+            />
         </div>
       </div>
     </div>
