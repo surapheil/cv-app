@@ -3,7 +3,7 @@ import Button from '../assets/Button';
 import Textarea from '../assets/Textarea';
 import '../styles/contact.css';
 
-const Summary = ({content,setContent,onCertificateContinueClick,onSummaryContinueClick }) => {
+const Summary = ({content,setContent,onSummaryBackClick,onSummaryContinueClick }) => {
   const textAreaRef = useRef(null);
 
   const [bold,setBold] = useState(false);
@@ -71,7 +71,7 @@ const Summary = ({content,setContent,onCertificateContinueClick,onSummaryContinu
           placeHolder="Add, edit, and write here."
         />
         <div className='educationButton experianceButton'>
-              <Button type="button" value="Back" onClick={onCertificateContinueClick} className="backButton"/>
+              <Button type="button" value="Back" onClick={onSummaryBackClick} className="backButton"/>
               <Button type="button" value="Continue" onClick={onSummaryContinueClick} className="button"/>
         </div>
       </form>

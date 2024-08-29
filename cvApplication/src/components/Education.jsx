@@ -8,7 +8,7 @@ import '../styles/contact.css';
 import '../assets/yearSelection';
 import YearSelection from '../assets/yearSelection';
 import { useState } from 'react';
-function Education({education,setEducation,onExperienceContinueClick,onEducationContinueClick}){
+function Education({education,setEducation,onEducationBackClick,onEducationContinueClick}){
   
 
     const handleChange = (prop,value) =>{
@@ -39,7 +39,7 @@ function Education({education,setEducation,onExperienceContinueClick,onEducation
                     <Input type="text" name="GPA score" value={education.GPA} onChange={(e)=>handleChange('GPA',e.target.value)}/>
                 </div>
                 <div className='educationButton experianceButton'>
-                    <Button type="button" value="Back" onClick={onExperienceContinueClick} className="backButton"/>
+                    <Button type="button" value="Back" onClick={onEducationBackClick} className="backButton"/>
                     <Button type="button" value="Continue" onClick={onEducationContinueClick} className="button"/>
                 </div>
             </form>

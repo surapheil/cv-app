@@ -31,6 +31,18 @@ function Navigation({isActive,setIsActive}){
                     Contact
                 </a>
             </div>
+            <div className={`summaryNavigation navs ${isActive === 'summary' ? 'sum': ''}`} onClick={(e)=>setIsActive('summary',e)}>
+                <a href="#" >
+                    <img src={isActive === 'summary' ? summaryClicked : Summary} className="icn" alt="" />
+                    Summary
+                </a>
+            </div>
+            <div className= {`skillNavigation navs ${isActive === 'skill' ? 'ski': ''}`} onClick={(e)=>setIsActive('skill',e)}>
+                <a href="#">
+                    <img src={isActive === 'skill' ? skillsClicked : Skills} className="icn" alt="" />
+                    Skills
+                </a>
+            </div>
             <div className={`experianceNavigation navs ${isActive === 'experience' ? 'exp' : ''}`} onClick={(e) => handleClick('experience',e)}>
                 <a href="#">
                     <img src={isActive === 'experience' ? experienceClicked: Experience} className="icn" alt="experience icon" />
@@ -47,18 +59,6 @@ function Navigation({isActive,setIsActive}){
                 <a href="#">
                     <img src={isActive === 'certification' ? certificateClicked : Certificate}  className="icn" alt="certification icon" />
                     Certifications
-                </a>
-            </div>
-            <div className= {`skillNavigation navs ${isActive === 'skill' ? 'ski': ''}`} onClick={(e)=>setIsActive('skill',e)}>
-                <a href="#">
-                    <img src={isActive === 'skill' ? skillsClicked : Skills} className="icn" alt="" />
-                    Skills
-                </a>
-            </div>
-            <div className={`summaryNavigation navs ${isActive === 'summary' ? 'sum': ''}`} onClick={(e)=>setIsActive('summary',e)}>
-                <a href="#" >
-                    <img src={isActive === 'summary' ? summaryClicked : Summary} className="icn" alt="" />
-                    Summary
                 </a>
             </div>
             <div className={`referenceNavigation navs ${isActive === 'reference' ? 'ref': ''}`} onClick={(e)=>setIsActive('reference',e)}>

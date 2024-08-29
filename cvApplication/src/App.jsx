@@ -44,15 +44,16 @@ function App() {
   }
 
   const onContinueClick = () => {
-          setIsActive('experience');
+          setIsActive('summary');
           setShowContactInfo(true);
   };
-  const onExperienceBackClick = () => setIsActive('contact');
+  const onSummaryBackClick = () => setIsActive('contact');
   const onExperienceContinueClick = (experianceData) => {
     handleAddExperience(experianceData);
     setIsActive('experienceSummary');
     setShowExperienceInfo(true);
   };
+  const onExperienceBackClick = () => setIsActive('skill');
   const onExperienceSummaryContinueClick = (summary) => {
     handleAddExperienceSummary(experiances.length-1,summary);
     setIsActive('education');
@@ -62,16 +63,24 @@ function App() {
     setIsActive('certification');
     setShowEducationInfo(true);
   }
+
+  const onEducationBackClick = () => {
+    setIsActive('experienceSummary');
+  }
   const onCertificateContinueClick = () => {
-      setIsActive('skill')
+      setIsActive('reference')
       setShowCertificationInfo(true)
   };
   const onSkillsContinueClick = () =>{ 
-      setIsActive('summary');
+      setIsActive('experience');
       setShowSkillsInfo(true);
   };
+
+  const onSkillBackButton = () =>{
+    setIsActive('summary');
+  }
   const onSummaryContinueClick = () => {
-    setIsActive('reference');
+    setIsActive('skill');
     setShowSummaryInfo(true);
   };
   const addReferenceClick = () => setIsActive('addReference');
@@ -174,7 +183,7 @@ return (
           {isActive === 'education' && (
             <Education 
               onEducationContinueClick={onEducationContinueClick} 
-              onExperienceContinueClick={onExperienceContinueClick} 
+              onEducationBackClick = {onEducationBackClick}
               education={education}
               setEducation={setEducation}
             />
@@ -189,7 +198,7 @@ return (
           )}
           {isActive === 'skill' && (
             <Skills 
-              onEducationContinueClick={onEducationContinueClick} 
+              onSkillBackButton ={onSkillBackButton}
               onSkillsContinueClick={onSkillsContinueClick}
               skills={skills}
               setSkills={setSkills} 
@@ -198,7 +207,7 @@ return (
           {isActive === 'summary' && (
             <Summary 
               onSummaryContinueClick={onSummaryContinueClick} 
-              onCertificateContinueClick={onCertificateContinueClick} 
+              onSummaryBackClick={onSummaryBackClick} 
               content={content}
               setContent={setContent}
             />
@@ -217,7 +226,7 @@ return (
           )}
           {isActive === 'addReference' && (
             <AddReference 
-              onSummaryContinueClick={onSummaryContinueClick} 
+              onCertificateContinueClick = {onCertificateContinueClick}
               toFinalizeClick={toFinalizeClick} 
             />
           )}

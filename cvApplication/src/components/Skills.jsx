@@ -4,7 +4,7 @@ import Button from "../assets/Button";
 import '../styles/contact.css';
 import addIcon from '../assets/images/plus-icon_11985505.png';
 
-function Skills({skills,setSkills,onEducationContinueClick,onSkillsContinueClick}){
+function Skills({skills,setSkills,onSkillBackButton,onSkillsContinueClick}){
   
     const handleDelete=(indexToDelete)=>{
         setSkills(skills.filter((_,index)=>index !== indexToDelete));
@@ -46,7 +46,7 @@ function Skills({skills,setSkills,onEducationContinueClick,onSkillsContinueClick
                 </div>
 
                 <div className='educationButton experianceButton'>
-                    <Button type="button" value="Back" className="backButton" onClick={onEducationContinueClick} />
+                    <Button type="button" value="Back" className="backButton" onClick={onSkillBackButton} />
                     <Button type="button" value="Continue" className="button" onClick={onSkillsContinueClick} />
                 </div>
             </form>

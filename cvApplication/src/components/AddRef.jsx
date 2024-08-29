@@ -4,7 +4,7 @@ import '../styles/contact.css';
 import '../styles/Experiance.css'
 import { useState } from 'react';
 
-function AddReference({onSummaryContinueClick,toFinilizeClick}){
+function AddReference({onCertificateContinueClick,toFinilizeClick}){
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [position, setPosition] = useState("");
@@ -37,7 +37,7 @@ function AddReference({onSummaryContinueClick,toFinilizeClick}){
                 </div>
 
                 <div className='experianceButton'>
-                    <Button name ="Back" value = "Back" onClick={onSummaryContinueClick} className="backButton" type="button"/>
+                    <Button name ="Back" value = "Back" onClick={onCertificateContinueClick} className="backButton" type="button"/>
                     <Button name="Continue" value="Save" onClick={toFinilizeClick} className="button" type="button"/>
                 </div>
 
