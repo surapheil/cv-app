@@ -3,7 +3,7 @@ import phoneIcon from './icon/telephone.png';
 import emailIcon from './icon/email.png';
 import locationIcon from './icon/gps.png';
 
-const Resume = ({contact,showExperienceInfo,showExperienceSummaryInfo,showLanguagesInfo,showCertificationInfo,showEducationInfo,showSkillsInfo,showContactInfo,showSummaryInfo,experiances,content,skills,education,certification,languages})=>{
+const Resume = ({currentlyWorkingHere,contact,showExperienceInfo,showExperienceSummaryInfo,showLanguagesInfo,showCertificationInfo,showEducationInfo,showSkillsInfo,showContactInfo,showSummaryInfo,experiances,content,skills,education,certification,languages})=>{
     return (
         <div className="resume">
             {showContactInfo && (
@@ -72,7 +72,7 @@ const Resume = ({contact,showExperienceInfo,showExperienceSummaryInfo,showLangua
                     </div>
                     <div className='employmentJobStatus'>
                         <p className="companyName">{exp.Company},</p>
-                        <p className='employmentDuration'>{exp.startMonth}, {exp.startYear} - {exp.endMonth}, {exp.endYear}</p>
+                        <p className='employmentDuration'>{exp.startMonth}, {exp.startYear} - {currentlyWorkingHere}{exp.endMonth},{exp.endYear}</p>
                     </div>
                    {showExperienceSummaryInfo && ( <div className='jobResponsibilities'
                       dangerouslySetInnerHTML={{ __html: exp.summary }} 

@@ -7,7 +7,7 @@ import MonthInput from '../assets/monthSelection';
 import YearSelection from '../assets/yearSelection';
 
 
-function Experiance({onChange,onExperianceBackClick,onExperienceContinueClick}){
+function Experiance({handleCurrentlyWorkingHere,onChange,onExperianceBackClick,onExperienceContinueClick}){
     const [JobTitle,setJobTitle] = useState('');
     const [Company,setCompany] = useState('');
     const [Country,setCountry] = useState('');
@@ -53,11 +53,11 @@ function Experiance({onChange,onExperianceBackClick,onExperienceContinueClick}){
                     <YearSelection name="Start year" value={startYear} onChange={(selectedOption)=>setStartYear(selectedOption)} />
                 </div>
                 <div className='graduationTiming'>
-                    <MonthInput name="End months" value={endMonth} onChange={(selectedOption)=>setEndMonth(selectedOption)} />
+                    <MonthInput name="End months" value={endMonth} onChange={(selectedOption)=>setEndMonth(selectedOption)}/>
                     <YearSelection name="End year" value={endYear} onChange={(selectedOption)=>setEndYear(selectedOption)} />
                 </div>
                 <div className='experianceCheckBox'>
-                    <input  type="checkbox"/>
+                    <input  type="checkbox" name='Present' onChange={handleCurrentlyWorkingHere}/>
                     <label >Currently Working Here</label>
                 </div>
                 <div className='experianceButton'>

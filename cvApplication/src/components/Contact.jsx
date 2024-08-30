@@ -1,9 +1,11 @@
 import { useState } from "react";
 import "../styles/contact.css";
+import "../styles/Experiance.css";
 import Country from "../assets/Country";
+import CountrySelect from '../assets/CountrySelect';
 
 
-function Contact({contact,setContact,onContinueClick}){
+function Contact({contact,onChange,setContact,onContinueClick}){
    
     const handleChange = (prop,value)=>{
         const currentContact = {...contact};
@@ -36,7 +38,7 @@ function Contact({contact,setContact,onContinueClick}){
                 </div>
 
                 <div className="countrySelection fullName">
-                    <Country name ="Country" value={contact.country} onChange={(selectedOption)=>handleChange('country',selectedOption.label)}/>
+                    <CountrySelect value={contact.country} onChange={(selectedOption)=>handleChange('country',selectedOption)}/>
                     <Input name="City" type="Text" value={contact.city} onChange={(e)=> handleChange ('city',e.target.value)} />
                 </div>
                 <div className="email">

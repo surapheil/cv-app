@@ -30,10 +30,20 @@ function App() {
   const [showLanguagesInfo,setShowLanguagesInfo] =useState(false);
   const [showExperienceInfo,setShowExperienceInfo] = useState(false);
   const [showExperienceSummaryInfo,setShowExperienceSummaryInfo] = useState(false);
+  const [currentlyWorkingHere,setCurrentlyWorkingHere] = useState('');
 
 
   const handleAddExperience = (experianceData) =>{
     setExperiances([...experiances, {...experianceData, summary:''}]);
+
+  }
+
+
+  const handleCurrentlyWorkingHere = (event)=>{
+    const {name,checked} = event.target;
+    if(checked){
+      setCurrentlyWorkingHere(name);
+    }
   }
 
   const handleAddExperienceSummary = (index,summary) =>{
@@ -130,7 +140,7 @@ function App() {
     lastName:'',
     email:'',
     phone:'',
-    country: '',
+    country: countries[0].text || '',
     city: '',
     jobTitle: ''
 
@@ -172,12 +182,13 @@ return (
             <Experiance 
               onExperianceBackClick={onExperienceBackClick} 
               onExperienceContinueClick={onExperienceContinueClick} 
+              handleCurrentlyWorkingHere={handleCurrentlyWorkingHere}
             />
           )}
           {isActive === 'experienceSummary' && (
             <ExperienceSummary 
               onExperienceSummaryContinueClick={onExperienceSummaryContinueClick} 
-              onContinueClick={onContinueClick} 
+              onSkillsContinueClick={onSkillsContinueClick} 
             />
           )}
           {isActive === 'education' && (
@@ -235,7 +246,8 @@ return (
         <div className='rightMain'>
             <Resume 
               contact={contact} 
-              showExperienceInfo={showExperienceInfo} 
+              showExperienceInfo={showExperienceInfo}
+              currentlyWorkingHere={currentlyWorkingHere}
               showExperienceSummaryInfo={showExperienceSummaryInfo} 
               showLanguagesInfo={showLanguagesInfo} experiances={experiances} 
               showCertificationInfo={showCertificationInfo} 

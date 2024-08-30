@@ -5,7 +5,7 @@ import '../styles/contact.css';
 import addIcon from '../assets/images/plus-icon_11985505.png';
 
 
-const ExperienceSummary = ({onContinueClick,onExperienceSummaryContinueClick}) => {
+const ExperienceSummary = ({onSkillsContinueClick,onContinueClick,onExperienceSummaryContinueClick}) => {
   const [content, setContent] = useState('');
   const textAreaRef = useRef(null);
 
@@ -84,7 +84,7 @@ const ExperienceSummary = ({onContinueClick,onExperienceSummaryContinueClick}) =
             </a>
         </div>
         <div className='educationButton experianceButton'>
-              <Button type="button" value="Back" className="backButton" onClick={onContinueClick}/>
+              <Button type="button" value="Back" className="backButton" onClick={onSkillsContinueClick}/>
               <Button type="submit" value="Continue" onClick={handleSubmit} className="button"/>
         </div>  
       </form>
