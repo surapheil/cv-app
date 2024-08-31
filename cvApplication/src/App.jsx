@@ -140,11 +140,13 @@ function App() {
     lastName:'',
     email:'',
     phone:'',
-    country: countries[0].text || '',
+    country: '',
     city: '',
     jobTitle: ''
 
-})
+});
+
+
 
   const [education, setEducation] = useState({
     schoolName:'',
@@ -255,7 +257,8 @@ return (
               showSkillsInfo={showSkillsInfo} 
               showSummaryInfo={showSummaryInfo} 
               showContactInfo={showContactInfo} 
-              content={content} skills={skills} 
+              content={content} 
+              skills={skills} 
               education={education} 
               certification={certification} 
               languages={languages}

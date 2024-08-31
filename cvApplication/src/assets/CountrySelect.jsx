@@ -1,9 +1,9 @@
 import React from 'react';
 import { useState,useEffect } from 'react';
 
-const CountryDropdown = ({onChange }) => {
+const CountryDropdown = ({ onChange }) => {
   const countries = [
-    {"text": " ","value": " "},
+    { "text": "","value": "" },
     { "text": "Afghanistan", "value": "AF" },
     { "text": "Åland Islands", "value": "AX" },
     { "text": "Albania", "value": "AL" },
@@ -248,13 +248,13 @@ const CountryDropdown = ({onChange }) => {
     { "text": "Zambia", "value": "ZM" },
     { "text": "Zimbabwe", "value": "ZW" }
    
-  ];
+];
 
-  let [isValid,setIsValid] = useState(false);
-  let [isFocused,setIsFocused] = useState(false);
+let [isValid,setIsValid] = useState(false);
+let [isFocused,setIsFocused] = useState(false);
 
-  const handleFocus = ()=>{setIsFocused(true)};
-  const handleBlur = () => {
+const handleFocus = ()=>{setIsFocused(true)};
+const handleBlur = () => {
       setIsFocused(false);
       const select = document.getElementById('monthSelect');
       if(select.value !== ''){
@@ -263,13 +263,12 @@ const CountryDropdown = ({onChange }) => {
       else{
           setIsValid(false);
       }
+}
 
-  }
-
-  useEffect(()=>{
+useEffect(()=>{
       setIsValid(false);
       setIsFocused(false);
-  },[]);
+},[]);
 
 const handleMonthChange = (e)=>{
   const selectedOption = e.target.value;
@@ -283,16 +282,16 @@ const handleMonthChange = (e)=>{
             id="monthSelect"
             onFocus={handleFocus}
             onBlur={handleBlur}
-            onChange={handleMonthChange} 
+            onChange={handleMonthChange}   
             required
         >
-            {countries.map((country) => (
+          {countries.map((country) => (
                 <option key={country.value} value={country.text}>
-                {country.text}
+                  {country.text}
                 </option>
             ))}
         </select>
-        <span value="" disabled className={`monthsPlaceholder ${ isFocused || isValid ? 'transformed': '' }`}>Select a Country</span>
+        <span className={`monthsPlaceholder ${ isFocused || isValid ? 'transformed': '' }`}>Select a Country</span>
     </div>
   );
 };
