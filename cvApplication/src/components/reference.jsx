@@ -14,8 +14,11 @@ function Reference({toFinalizeClick,addReferenceClick}){
                     <Button className="backButton" type="button" onClick={toFinalizeClick} value="Upon Request" />
                     <Button className="backButton" type="button" onClick={toFinalizeClick} value="No"/>
                 </div>
-            </form>            
-a       </div>   
+            </form>   
+            <div className="skipBtn">
+                <a href="#" className="skipAnchor" onClick={toFinalizeClick}>Skip adding Reference</a>
+            </div>         
+       </div>   
 )
 }
 

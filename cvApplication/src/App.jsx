@@ -25,6 +25,9 @@ function App() {
   const [showContactInfo, setShowContactInfo] = useState(false);
   const [showSummaryInfo,setShowSummaryInfo] = useState(false);
   const [showEducationInfo,setShowEducationInfo] = useState(false);
+  const [showVolunteerInfo,setShowVolunteerInfo] = useState(false);
+  const [showAwardInfo,setShowAwardInfo] = useState(false);
+  const [showPublicationInfo,setShowPublicationInfo] = useState(false);
   const [showCertificationInfo,setShowCertificationInfo] = useState(false);
   const [showSkillsInfo,setShowSkillsInfo] = useState(false);
   const [showLanguagesInfo,setShowLanguagesInfo] =useState(false);
@@ -35,7 +38,6 @@ function App() {
 
   const handleAddExperience = (experianceData) =>{
     setExperiances([...experiances, {...experianceData, summary:''}]);
-
   }
 
 
@@ -54,24 +56,28 @@ function App() {
   }
 
   const onContinueClick = () => {
-          setIsActive('summary');
-          setShowContactInfo(true);
+      setIsActive('summary');
+      setShowContactInfo(true);
   };
   const onSummaryBackClick = () => setIsActive('contact');
   const onExperienceContinueClick = (experianceData) => {
-    handleAddExperience(experianceData);
-    setIsActive('experienceSummary');
-    setShowExperienceInfo(true);
+      handleAddExperience(experianceData);
+      setIsActive('experienceSummary');
+      setShowExperienceInfo(true);
   };
   const onExperienceBackClick = () => setIsActive('skill');
   const onExperienceSummaryContinueClick = (summary) => {
-    handleAddExperienceSummary(experiances.length-1,summary);
-    setIsActive('education');
-    setShowExperienceSummaryInfo(true);
+      handleAddExperienceSummary(experiances.length-1,summary);
+      setIsActive('education');
+      setShowExperienceSummaryInfo(true);
   }
   const onEducationContinueClick = () =>{
     setIsActive('certification');
     setShowEducationInfo(true);
+  }
+
+  const onEducationSkipClick = () =>{
+    setIsActive('certification');
   }
 
   const onEducationBackClick = () => {
@@ -81,10 +87,18 @@ function App() {
       setIsActive('reference')
       setShowCertificationInfo(true)
   };
+
+  const onCerteficationSkipClick = () => {
+    setIsActive('reference');
+  }
   const onSkillsContinueClick = () =>{ 
       setIsActive('experience');
       setShowSkillsInfo(true);
   };
+
+  const onSkillsSkipClick = () => {
+    setIsActive('experience');
+  }
 
   const onSkillBackButton = () =>{
     setIsActive('summary');
@@ -93,6 +107,10 @@ function App() {
     setIsActive('skill');
     setShowSummaryInfo(true);
   };
+
+  const onSummarySkipClick = () =>{
+    setIsActive('skill');
+  }
   const addReferenceClick = () => setIsActive('addReference');
   const toFinalizeClick = () => {setIsActive('finalize');}
   
@@ -102,12 +120,25 @@ function App() {
     setCurrentIndex(0); // Start from the first selected section
     setIsActive('finalizeContinue');
   };
-
+  console.log(finalizeOrder);
   const handleNextSection = () => {
-    if (currentIndex < finalizeOrder.length - 1) {
+    
+    if (currentIndex <= finalizeOrder.length - 1) {
+      if(finalizeOrder[currentIndex] === 'Languages'){
+        setShowLanguagesInfo(true); 
+      }
+      else if(finalizeOrder[currentIndex]==='Volunteer'){
+        setShowVolunteerInfo(true);
+      }
+      else if(finalizeOrder[currentIndex]==='Awards'){
+        setShowAwardInfo(true);
+      }
+      else if(finalizeOrder[currentIndex]==='Publications'){
+        setShowPublicationInfo(true);
+      }
       setCurrentIndex(currentIndex + 1);
     } 
-    setShowLanguagesInfo(true);
+    
   };
 
   const handlePrevSection = () => {
@@ -125,17 +156,17 @@ function App() {
       case 'Languages':
         return <Languages handlePrevSection={handlePrevSection} languages={languages} setLanguages={setLanguages}  handleNextSection={handleNextSection} />;
       case 'Volunteer':
-        return <Volunteer handlePrevSection={handlePrevSection}  handleNextSection={handleNextSection} />;
+        return <Volunteer handlePrevSection={handlePrevSection} volunteer={volunteer} setVolunteer={setVolunteer} handleNextSection={handleNextSection} />;
       case 'Awards':
-        return <Awards handlePrevSection={handlePrevSection}  handleNextSection={handleNextSection} />;
+        return <Awards handlePrevSection={handlePrevSection} awards={awards} setAwards={setAwards} handleNextSection={handleNextSection} />;
       case 'Publications':
-        return <Publications handlePrevSection={handlePrevSection}  handleNextSection={handleNextSection} />;
+        return <Publications handlePrevSection={handlePrevSection} publications={publications} setPublications={setPublications} handleNextSection={handleNextSection} />;
       default:
         return null;
     }
   };
 
-  const [contact,setContact] = useState({
+const [contact,setContact] = useState({
     firstName:'',
     lastName:'',
     email:'',
@@ -148,7 +179,7 @@ function App() {
 
 
 
-  const [education, setEducation] = useState({
+const [education, setEducation] = useState({
     schoolName:'',
     schoolLocation:'',
     educationLevel:'',
@@ -171,6 +202,10 @@ let [languages,setLanguages] = useState(
   }]
 );
 
+let [volunteer, setVolunteer] = useState([]);
+let [publications,setPublications] = useState(['']);
+let [awards,setAwards] = useState(['']);
+
 
 return (
     <div className='container'>
@@ -179,7 +214,8 @@ return (
       </div>
       <div className='main'>
         <div className='leftMain'>
-          {isActive === 'contact' && <Contact onContinueClick={onContinueClick} contact={contact} setContact={setContact} />} 
+          {isActive === 'contact' && 
+            <Contact onContinueClick={onContinueClick} contact={contact} setContact={setContact} />} 
           {isActive === 'experience' && (
             <Experiance 
               onExperianceBackClick={onExperienceBackClick} 
@@ -199,6 +235,7 @@ return (
               onEducationBackClick = {onEducationBackClick}
               education={education}
               setEducation={setEducation}
+              onEducationSkipClick={onEducationSkipClick}
             />
           )}
           {isActive === 'certification' && (
@@ -207,6 +244,7 @@ return (
               onCertificateContinueClick={onCertificateContinueClick} 
               certification={certification}
               setCertifications={setCertifications}
+              onCerteficationSkipClick={onCerteficationSkipClick}
             />
           )}
           {isActive === 'skill' && (
@@ -214,7 +252,8 @@ return (
               onSkillBackButton ={onSkillBackButton}
               onSkillsContinueClick={onSkillsContinueClick}
               skills={skills}
-              setSkills={setSkills} 
+              setSkills={setSkills}
+              onSkillsSkipClick={onSkillsSkipClick} 
             />
           )}
           {isActive === 'summary' && (
@@ -223,6 +262,7 @@ return (
               onSummaryBackClick={onSummaryBackClick} 
               content={content}
               setContent={setContent}
+              onSummarySkipClick = {onSummarySkipClick}
             />
           )}
           {isActive === 'reference' && (
@@ -251,17 +291,24 @@ return (
               showExperienceInfo={showExperienceInfo}
               currentlyWorkingHere={currentlyWorkingHere}
               showExperienceSummaryInfo={showExperienceSummaryInfo} 
-              showLanguagesInfo={showLanguagesInfo} experiances={experiances} 
+              showLanguagesInfo={showLanguagesInfo} 
+              experiances={experiances} 
               showCertificationInfo={showCertificationInfo} 
               showEducationInfo={showEducationInfo} 
               showSkillsInfo={showSkillsInfo} 
               showSummaryInfo={showSummaryInfo} 
               showContactInfo={showContactInfo} 
+              showVolunteerInfo={showVolunteerInfo}
+              showAwardInfo={showAwardInfo}
+              showPublicationInfo={showPublicationInfo}
               content={content} 
               skills={skills} 
               education={education} 
               certification={certification} 
               languages={languages}
+              awards={awards}
+              publications={publications}
+              volunteer = {volunteer}
             />
         </div>
       </div>

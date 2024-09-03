@@ -79,7 +79,7 @@ function Languages({ languages,setLanguages,handlePrevSection,handleNextSection}
                               
                             </div>
                             <div>
-                            <select 
+                                <select 
                                         name="Proficiency"
                                         value={lang.proficiency}
                                         id="monthSelect"
@@ -96,7 +96,7 @@ function Languages({ languages,setLanguages,handlePrevSection,handleNextSection}
                                         <option value="Conversational">Conversational</option>
                                         <option value="Intermediate">Intermediate</option> 
                                         <option value="Beginner">Beginner</option>
-                                    </select>
+                                </select>
                                     <span className={`monthsPlaceholder languageSelection ${ isFocused || isValid ? 'transformed': '' }`}>Proficiency level</span>
                             </div>
                       </div>

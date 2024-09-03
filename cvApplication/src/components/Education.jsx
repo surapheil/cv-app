@@ -7,10 +7,7 @@ import '../styles/yearAndMonthSelection.css';
 import '../styles/contact.css';
 import '../assets/yearSelection';
 import YearSelection from '../assets/yearSelection';
-import { useState } from 'react';
 function Education({education,setEducation,onEducationBackClick,onEducationContinueClick}){
-  
-
     const handleChange = (prop,value) =>{
         const currentEducation = {...education};
         currentEducation[prop] = value;
@@ -43,6 +40,9 @@ function Education({education,setEducation,onEducationBackClick,onEducationConti
                     <Button type="button" value="Continue" onClick={onEducationContinueClick} className="button"/>
                 </div>
             </form>
+            <div className="skipBtn">
+                <a href="#" className="skipAnchor" onClick={onEducationContinueClick}>Skip adding Education</a>
+            </div>
         </div>
     )
 }

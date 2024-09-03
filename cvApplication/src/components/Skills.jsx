@@ -4,7 +4,7 @@ import Button from "../assets/Button";
 import '../styles/contact.css';
 import addIcon from '../assets/images/plus-icon_11985505.png';
 
-function Skills({skills,setSkills,onSkillBackButton,onSkillsContinueClick}){
+function Skills({skills,setSkills,onSkillsSkipClick,onSkillBackButton,onSkillsContinueClick}){
   
     const handleDelete=(indexToDelete)=>{
         setSkills(skills.filter((_,index)=>index !== indexToDelete));
@@ -51,7 +51,7 @@ function Skills({skills,setSkills,onSkillBackButton,onSkillsContinueClick}){
                 </div>
             </form>
             <div className="skipBtn">
-                <a href="#" className="skipAnchor">Skip adding skills</a>
+                <a href="#" className="skipAnchor" onClick={onSkillsSkipClick}>Skip adding skills</a>
             </div>
         </div>
     )

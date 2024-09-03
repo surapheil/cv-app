@@ -88,9 +88,6 @@ const ExperienceSummary = ({onSkillsContinueClick,onContinueClick,onExperienceSu
               <Button type="submit" value="Continue" onClick={handleSubmit} className="button"/>
         </div>  
       </form>
-      <div className="skipBtn">
-          <a href="#" className="skipAnchor">Skip adding Experience</a>
-      </div>
     </div>
     
   );

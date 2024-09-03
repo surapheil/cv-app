@@ -4,7 +4,7 @@ import Button from "../assets/Button";
 import '../styles/contact.css';
 import addIcon from '../assets/images/plus-icon_11985505.png';
 
-function Certifications({certification,setCertifications,onExperienceSummaryContinueClick,onCertificateContinueClick}){
+function Certifications({certification,setCertifications,onCerteficationSkipClick,onExperienceSummaryContinueClick,onCertificateContinueClick}){
 
     const handleDelete=(indexToDelete)=>{
         setCertifications(certification.filter((_,index)=>index !== indexToDelete));
@@ -51,7 +51,7 @@ function Certifications({certification,setCertifications,onExperienceSummaryCont
                 </div>
             </form>
             <div className="skipBtn">
-                <a href="#" className="skipAnchor">Skip adding certificates and licences</a>
+                <a href="#" className="skipAnchor" onClick={onCerteficationSkipClick}>Skip adding certificates and licences</a>
             </div>
         </div>
     )

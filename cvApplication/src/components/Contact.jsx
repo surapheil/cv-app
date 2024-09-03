@@ -4,7 +4,7 @@ import "../styles/Experiance.css";
 import CountrySelect from '../assets/CountrySelect';
 
 
-function Contact({contact,onChange,setContact,onContinueClick}){
+function Contact({contact,setContact,onContinueClick}){
    
     const handleChange = (prop,value)=>{
         const currentContact = {...contact};

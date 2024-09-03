@@ -4,8 +4,8 @@ import Button from "./Button";
 import '../styles/contact.css';
 import addIcon from '../assets/images/plus-icon_11985505.png';
 
-function Awards({handlePrevSection,handleNextSection}){
-    let [awards,setAwards] = useState(['']);
+function Awards({awards,setAwards,handlePrevSection,handleNextSection}){
+    
   
     const handleDelete=(indexToDelete)=>{
         setAwards(awards.filter((_,index)=>index !== indexToDelete));

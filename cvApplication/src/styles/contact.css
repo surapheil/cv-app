@@ -155,3 +155,13 @@
     text-decoration: none;
 }
 
+.skipAnchor{
+    display: flex;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #2b2d2f;
+    letter-spacing: 0.5px;
+    margin: 10px 0 0;
+    line-height: 2.6rem; 
+    text-decoration: underline;  
+}

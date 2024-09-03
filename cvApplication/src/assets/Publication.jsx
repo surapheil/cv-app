@@ -4,8 +4,8 @@ import Button from "./Button";
 import '../styles/contact.css';
 import addIcon from '../assets/images/plus-icon_11985505.png';
 
-function Publications({handlePrevSection,handleNextSection}){
-    let [publications,setPublications] = useState(['']);
+function Publications({publications,setPublications,handlePrevSection,handleNextSection}){
+    
   
     const handleDelete=(indexToDelete)=>{
         setPublications(publications.filter((_,index)=>index !== indexToDelete));

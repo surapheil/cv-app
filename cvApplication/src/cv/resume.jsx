@@ -3,7 +3,7 @@ import phoneIcon from './icon/telephone.png';
 import emailIcon from './icon/email.png';
 import locationIcon from './icon/gps.png';
 
-const Resume = ({currentlyWorkingHere,contact,showExperienceInfo,showExperienceSummaryInfo,showLanguagesInfo,showCertificationInfo,showEducationInfo,showSkillsInfo,showContactInfo,showSummaryInfo,experiances,content,skills,education,certification,languages})=>{
+const Resume = ({currentlyWorkingHere,showPublicationInfo,awards,publications,volunteer,contact,showAwardInfo,showVolunteerInfo,showExperienceInfo,showExperienceSummaryInfo,showLanguagesInfo,showCertificationInfo,showEducationInfo,showSkillsInfo,showContactInfo,showSummaryInfo,experiances,content,skills,education,certification,languages})=>{
     return (
         <div className="resume">
             {showContactInfo && (
@@ -33,7 +33,8 @@ const Resume = ({currentlyWorkingHere,contact,showExperienceInfo,showExperienceS
                 </div>
             </>
         )}
-            {showSummaryInfo && (<div className='proffesionalSummary'>
+            {showSummaryInfo && (
+                <div className='proffesionalSummary'>
                 <h2 className='summaryTitle'>
                     PROFFESSIONAL SUMMARY
                     <div className='underline'></div>
@@ -83,7 +84,8 @@ const Resume = ({currentlyWorkingHere,contact,showExperienceInfo,showExperienceS
             ))}  
             </div>
         )} 
-            {showEducationInfo && (<div className="educationResumeContainer">
+            {showEducationInfo && (
+                <div className="educationResumeContainer">
                 <h2 className='educationTitle'>
                     EDUCATION 
                     <div className='underline'></div>
@@ -105,7 +107,7 @@ const Resume = ({currentlyWorkingHere,contact,showExperienceInfo,showExperienceS
                 </div>
             </div>
         )}
-            {showCertificationInfo && (
+        { showCertificationInfo && (
                 <div className="certificationResumeContainer educationResumeContainer">
                         <div className='certicicationTitle educationTitle'>
                             <h2 className='certificationTitle'>CERTIFICATIONS</h2>
@@ -138,6 +140,38 @@ const Resume = ({currentlyWorkingHere,contact,showExperienceInfo,showExperienceS
                 </div>
             </div>
         )}
+
+{ showAwardInfo && (
+                <div className="certificationResumeContainer educationResumeContainer">
+                        <div className='certicicationTitle educationTitle'>
+                            <h2 className='certificationTitle'>AWARDS</h2>
+                            <div className='underline'></div>
+                        </div>
+                        <div className='certificationNames'>
+                            <ul className='certificationLists'>
+                                {awards.map((cert,index)=>(
+                                    <li key={index}>{cert}</li>
+                                ))}
+                            </ul>
+                        </div>
+                </div>
+        )}
+
+{ showPublicationInfo && (
+                <div className="certificationResumeContainer educationResumeContainer">
+                        <div className='certicicationTitle educationTitle'>
+                            <h2 className='certificationTitle'>PUBLICATIONS</h2>
+                            <div className='underline'></div>
+                        </div>
+                        <div className='certificationNames'>
+                            <ul className='certificationLists'>
+                                {publications.map((cert,index)=>(
+                                    <li key={index}>{cert}</li>
+                                ))}
+                            </ul>
+                        </div>
+                </div>
+        )}        
         </div>
     )
 }

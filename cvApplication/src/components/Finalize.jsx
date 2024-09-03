@@ -16,14 +16,12 @@ function Finalize({onSummaryContinueClick,onFinalizeContinueClick}){
         else{
             setSelectedSection(selectedSection.filter(section => section !== name));
         }
-    }
+    };
 
     const handleContinueClick = () =>{
         onFinalizeContinueClick(selectedSection);
-    }
+    };
   
-
-    console.log(selectedSection);
     return(
         <div className="finalize contact">
             <div className='contactHeaders'>
